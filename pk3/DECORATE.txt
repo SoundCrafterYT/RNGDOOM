@@ -1,0 +1,731 @@
+ACTOR RNGPlayer : DoomPlayer
+{
+	Player.DisplayName "RNG Player"
+	Player.StartItem "RNGPistol"
+	Player.StartItem "RNGFist"
+	Player.WeaponSlot 1, RNGFist, RNGChainsaw
+	Player.WeaponSlot 2, RNGPistol
+	Player.WeaponSlot 3, RNGShotgun
+	Player.WeaponSlot 4, RNGChaingun
+	Player.WeaponSlot 5, RNGRPG
+	Player.WeaponSlot 6, RNGPlasma
+	Player.WeaponSlot 7, RNGBFG
+}
+
+ACTOR Trooper : Zombieman replaces ZombieMan
+{
+	Health 100
+	DropItem "Clip"
+	Mass 200
+}
+ACTOR SgTrooper : ShotgunGuy replaces ShotgunGuy
+{
+	Health 110
+	DropItem "PickupShotgun"
+	Mass 200
+}
+ACTOR Imp : DoomImp replaces DoomImp
+{
+	Health 160
+	Mass 250
+}
+ACTOR Pinky : Demon replaces Demon
+{
+	Health 200
+	Mass 280
+}
+ACTOR InvisPinky : Spectre replaces Spectre
+{
+	Health 250
+	Mass 300
+}
+ACTOR Soul : LostSoul replaces LostSoul
+{
+	Health 30
+	Mass 100
+}
+ACTOR Meatball : CacoDemon replaces CacoDemon
+{
+	Health 800
+	Mass 1000
+}
+ACTOR Satan : BaronOfHell replaces BaronOfHell
+{
+	Health 1500
+	Mass 1200
+}
+ACTOR Cyber : CyberDemon replaces CyberDemon
+{
+	Health 3000
+	Mass 2000
+}
+ACTOR SpiderDemon : SpiderMastermind replaces SpiderMastermind
+{
+	Health 5000
+	Mass 5000
+}
+
+ACTOR RNGChainsaw : Chainsaw 
+{
+	Weapon.Kickback 0
+	Weapon.SelectionOrder 2200
+	Weapon.UpSound "weapons/sawup"
+	Weapon.ReadySound "weapons/sawidle"
+	+WEAPON.MELEEWEAPON
+	States
+	{
+	Ready:
+		SAWG CCCCDDDD 1 A_WeaponReady
+		Loop
+	Select:
+		SAWG CD 1 A_Raise (5)
+		Loop
+	Deselect:
+		SAWG CD 1 A_Lower (5)
+		Loop
+	Fire:
+		SAWG A 0 A_StartSound("weapons/sawfull", 1, CHANF_LOOPING)
+		SAWG AB random(1, 5) A_Saw(None, "weapons/sawhit", random(5, 25), "Puff", 0, random(64, 100), frandom(0, 8), 0)
+		SAWG A 0 A_ReFire
+		SAWG A 0 A_StopSound (1)
+		Goto Ready
+	Spawn:
+		CSAW A -1
+		Stop
+	}
+}
+
+ACTOR RNGFist : Fist replaces Fist
+{
+	Weapon.SelectionOrder 3700
+	Weapon.SlotNumber 1
+	+WEAPON.MELEEWEAPON
+	states
+	{
+	Ready:
+		PUNG A 1 A_WeaponReady
+		Loop
+	Select:
+		PUNG A 1 A_Raise (10)
+		Loop
+	Deselect:
+		PUNG A 1 A_Lower (10)
+		Loop
+	Fire:
+		PUNG B random(1, 4)
+		PUNG C random(1, 4)
+		PUNG D random(2, 6) A_CustomPunch (random(25, 80), true, 0, "Puff", random(64, 80), 0, 0, None, "player/male/fist", "skeleton/swing")
+		PUNG C random(2, 4)
+		PUNG B random(3, 5)
+		PUNG A 1 A_ReFire
+		Goto Ready
+	}	
+}
+
+ACTOR RNGPistol : Pistol replaces Pistol
+{
+	Weapon.SelectionOrder 1900
+	Weapon.SlotNumber 2
+	Weapon.AmmoUse 1
+	Weapon.AmmoGive 3
+	Weapon.AmmoType "Clip"
+	states
+	{
+	Ready:
+		PISG A 1 A_WeaponReady
+		Loop
+	Select:
+		PISG A 1 A_Raise (8)
+		Loop
+	Deselect:
+		PISG A 1 A_Lower (8)
+		Loop
+	Fire:
+		PISG A 0 A_GunFlash
+		PISG A 0 A_StartSound ("Pistol", 1)
+		PISG A 0 A_FireBullets (frandom(0, 11), 0, -1, random(1, 50), "Puff", 1, random(1, 2048))
+		PISG B 1
+		PISG C 3
+		PISG D 4
+		PISG B 5
+		PISG A 2
+		Goto Ready
+	Flash:
+		PISF A 1 Bright A_Light1
+		Goto LightDone
+	Spawn:
+		PIST A -1
+		Stop
+	}
+}
+
+ACTOR RNGShotgun : Shotgun 
+{
+	Weapon.SelectionOrder 1300
+	Weapon.SlotNumber 3
+	Weapon.AmmoUse 1
+	Weapon.AmmoGive 0
+	Weapon.AmmoType "Shell"
+	+WEAPON.NOAUTOFIRE
+	States
+	{
+	Ready:
+		SHTG A 1 A_WeaponReady
+		Loop
+	Select:
+		SHTG A 1 A_Raise (7)
+		Loop
+	Deselect:
+		SHTG A 1 A_Lower (7)
+		Loop
+	Fire:
+		SHTG A 0 A_GunFlash
+		SHTG A 0 A_StartSound ("Shotgun", 1, CHANF_OVERLAP)
+		SHTG A 0 A_FireBullets (frandom(0, 12), 0, random(2, 5), random(1, 75), "Puff", 1, random(1, 2048))
+		SHTG C 3
+		SHTG B 4
+		SHTG A 1
+		SHTG D 0 A_CheckReload
+		SHTG D random (3, 9)
+		SHTG E random (2, 8)
+		SHTG F random (1, 7) A_StartSound ("Re-", 1, CHANF_OVERLAP)
+		SHTG E random (2, 8) A_StartSound ("-load", 1, CHANF_OVERLAP)
+		SHTG D 5
+		SHTG A 3
+		Goto Ready
+	Flash:
+		SHTF A 1 Bright A_Light2
+		Goto LightDone
+	Spawn:
+		SHOT A -1
+		Stop
+	Pickup:
+		TNT1 A 1 A_GiveInventory ("RandomShells", 100)
+		Stop
+	}
+}
+
+ACTOR RNGChaingun : Chaingun 
+{
+	Weapon.SelectionOrder 700
+	Weapon.SlotNumber 4
+	Weapon.AmmoUse 1
+	Weapon.AmmoGive 0
+	Weapon.AmmoType "Clip"
+	States
+	{
+	Ready:
+		CHGG A 1 A_WeaponReady
+		Loop
+	Deselect:
+		CHGG A 1 A_Lower
+		Loop
+	Select:
+		CHGG A 1 A_Raise
+		Loop
+	Fire:
+		CHGG A 0 A_GunFlash
+		CHGG A 0 A_StartSound ("Chaingun")
+		CHGG A 0 A_FireBullets(frandom(0, 10), 0, -1, random(10, 60), "Puff", 1, random(1, 2048))
+		CHGG A 1
+		CHGG B random(1, 3)
+		CHGG C random(1, 3)
+		CHGG D random(1, 3) A_ReFire
+		Goto Ready
+	Flash:
+		CHGF A 1 Bright A_Light1
+		Goto LightDone
+	Spawn:
+		MGUN A -1
+		Stop
+	}
+}
+
+ACTOR RNGRPG : RocketLauncher 
+{
+	Weapon.SelectionOrder 2500
+	Weapon.SlotNumber 5
+	Weapon.AmmoUse 1
+	Weapon.AmmoGive 0
+	Weapon.AmmoType "RocketAmmo"
+	+WEAPON.NOAUTOFIRE
+	States
+	{
+	Ready:
+		MISG A 0 A_CheckReload
+		MISG A 1 A_WeaponReady
+		Loop
+	Select:
+		MISG A 1 A_Raise
+		Loop
+	Deselect:
+		MISG A 1 A_Lower
+		Loop
+	Fire:
+		MISG A 0 A_GunFlash
+		MISG A 0 A_StartSound ("RLauncher")
+		MISG A 0 A_FireProjectile ("RNGRocket", frandom(-4, 4), true, 0, -10)
+		MISG FG 1
+		MISG C 2
+		MISG E 7
+		MISG D 6
+		MISG C 5
+		MISG B 4
+		MISG GF 1
+		MISG A 3
+		Goto Ready
+	Flash:
+		MISF A 1 Bright A_Light(1)
+		MISF B 1 Bright A_Light(2)
+		MISF C 1 Bright A_Light(3)
+		MISF D 1 Bright A_Light(4)
+		MISF E 1 Bright A_Light(5)
+		Goto LightDone
+	Spawn:
+		LAUN A -1
+		Stop
+	}
+}
+
+ACTOR RNGPlasma : PlasmaRifle 
+{
+	Weapon.SelectionOrder 100
+	Weapon.SlotNumber 6
+	Weapon.AmmoUse 1
+	Weapon.AmmoGive 0
+	Weapon.AmmoType "Cell"
+	States
+	{
+	Ready:
+		PLSM A 1 A_WeaponReady
+		Loop
+	Select:
+		PLSM A 1 A_Raise (5)
+		Loop
+	Deselect:
+		PLSM A 1 A_Lower (5)
+		Loop
+	Fire:
+		PLSM A 0 A_GunFlash
+		PLSM A 0 A_StartSound ("Plasma", 1, CHANF_OVERLAP)
+		PLSM A 0 A_FireProjectile ("RNGPlasmaBall", frandom(-6, 6), true, 0, -9)
+		TNT1 A 3
+		PLSM A 0 A_ReFire
+		PLSM A 2 A_CheckReload
+		PLSM B 3
+		PLSM C 6
+		PLSM B 4
+		PLSM A 2
+		Goto Ready
+	Flash:
+		PLSF A 1 A_Light (0)
+		PLSF B 2 A_Light (-1)
+		Goto LightDone
+	Spawn:
+		PLAS A -1
+		Stop
+	}
+}
+
+ACTOR RNGBFG : BFG9000
+{
+	Weapon.SelectionOrder 2800
+	Weapon.AmmoUse 30
+	Weapon.AmmoGive 0
+	Weapon.AmmoType "Cell"
+	States
+	{
+	Ready:
+		BFGG A 0 A_CheckReload
+		BFGG A 1 A_WeaponReady
+		Loop
+	Select:
+		BFGG A 1 A_Raise (3)
+		Loop
+	Deselect:
+		BFGG A 1 A_Lower (3)
+		Loop
+	Fire:
+		BFGG B 20 A_StartSound ("BFG9000")
+		BFGG A 0 A_GunFlash
+		BFGG A 0 A_FireProjectile ("RNGBFGBall", random(-5, 5), true, 0, -10)
+		BFGG C 3
+		BFGG E 13
+		BFGG D 9
+		BFGG C 5
+		BFGG B 3
+		Goto Ready
+	Flash:
+		BFGF A 1 Bright A_Light (-2)
+		BFGF B 1 Bright A_Light (-6)
+		Goto LightDone
+	Spawn:
+		BFUG A -1
+		Stop
+	}
+}
+
+ACTOR PickupChainsaw : CustomInventory replaces Chainsaw
+{
+	Inventory.PickupMessage "$GOTCHAINSAW"
+	Inventory.PickupSound "PickupSound"
+	States
+	{
+	Spawn:
+		CSAW A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory ("RNGChainsaw")
+		Stop
+	}
+}
+
+ACTOR PickupShotgun : CustomInventory replaces Shotgun
+{
+	Inventory.PickupMessage "$GOTSHOTGUN"
+	Inventory.PickupSound "PickupSound"
+	States
+	{
+	Spawn:
+		SHOT A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory ("RNGShotgun")
+		TNT1 A 0 A_GiveInventory ("Shell", random(1, 16))
+		Stop
+	}
+}
+
+ACTOR PickupChaingun : CustomInventory replaces Chaingun
+{
+	Inventory.PickupMessage "$GOTCHAINGUN"
+	Inventory.PickupSound "PickupSound"
+	States
+	{
+	Spawn:
+		MGUN A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory ("RNGChaingun")
+		TNT1 A 0 A_GiveInventory ("Clip", random(1, 200))
+		Stop
+	}
+}
+
+ACTOR PickupRLauncher : CustomInventory replaces RocketLauncher
+{
+	Inventory.PickupMessage "$GOTLAUNCHER"
+	Inventory.PickupSound "PickupSound"
+	States
+	{
+	Spawn:
+		LAUN A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory ("RNGRPG")
+		TNT1 A 0 A_GiveInventory ("RocketAmmo", random(1, 2))
+		Stop
+	}
+}
+
+ACTOR PickupPlasma : CustomInventory replaces PlasmaRifle
+{
+	Inventory.PickupMessage "$GOTPLASMA"
+	Inventory.PickupSound "PickupSound"
+	States
+	{
+	Spawn:
+		PLAS A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory ("RNGPlasma")
+		TNT1 A 0 A_GiveInventory ("Cell", random(1, 3))
+		Stop
+	}
+}
+
+ACTOR PickupBFG : CustomInventory replaces BFG9000
+{
+	Inventory.PickupMessage "$GOTBFG9000"
+	Inventory.PickupSound "PickupSound"
+	States
+	{
+	Spawn:
+		BFUG A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory ("RNGBFG")
+		TNT1 A 0 A_GiveInventory ("Cell", random(1, 45))
+		Stop
+	}
+}
+
+ACTOR RandomClip : CustomInventory replaces Clip
+{
+	Inventory.PickupMessage "$GOTBULLETS"
+	States
+	{
+	Spawn:
+		CLIP A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory("Clip", random(1,15))
+		Stop
+	}
+}
+ACTOR RandomAmmoBox : CustomInventory replaces ClipBox
+{
+	Inventory.PickupMessage "$GOTAMMOBOX"
+	States
+	{
+	Spawn:
+		AMMO A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory("Clip", random(1, 100))
+		Stop
+	}
+}
+
+ACTOR RandomShells : CustomInventory replaces Shell
+{
+	Inventory.PickupMessage "$GOTSHELLS"
+	States
+	{
+	Spawn:
+		SHEL A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory("Shell", random(1,8))
+		Stop
+	}
+}
+ACTOR RandomShellBox : CustomInventory replaces ShellBox
+{
+	Inventory.PickupMessage "$GOTSHELLBOX"
+	States
+	{
+	Spawn:
+		SBOX A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory("Shell", random(1, 25))
+		Stop
+	}
+}
+
+ACTOR RandomRocket : CustomInventory replaces RocketAmmo
+{
+	Inventory.PickupMessage "$GOTROCKET"
+	States
+	{
+	Spawn:
+		ROCK A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory("RocketAmmo", random(1, 3))
+		Stop
+	}
+}
+ACTOR RandomRPGBox : CustomInventory replaces RocketBox
+{
+	Inventory.PickupMessage "$GOTRPGBOX"
+	States
+	{
+	Spawn:
+		BROK A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory("RocketBox", random(10, 30))
+		Stop
+	}
+}
+
+ACTOR RandomCell : CustomInventory replaces Cell
+{
+	Inventory.PickupMessage "$GOTCELL"
+	States
+	{
+	Spawn:
+		CELL A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory("Cell", random(1, 5))
+		Stop
+	}
+}
+ACTOR RandomCellPack : CustomInventory replaces CellPack
+{
+	Inventory.PickupMessage "$GOTCELLBOX"
+	States
+	{
+	Spawn:
+		CELP A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory("CellPack", random(1, 5))
+		Stop
+	}
+}
+
+ACTOR RandomHealth : CustomInventory replaces HealthBonus
+{
+	Inventory.PickupMessage "$GOTHTHBONUS"
+	States
+	{
+	Spawn:
+		BON1 ABCDCB 6
+		Loop
+	Pickup:
+		TNT1 A 0 A_GiveInventory ("HealthBonus", random(1, 2))
+		Stop
+	}
+}
+
+ACTOR RandomArmBonus : CustomInventory replaces ArmorBonus
+{
+	Inventory.PickupMessage "$GOTARMBONUS"
+	States
+	{
+	Spawn:
+		BON2 ABCDCB 6
+		Loop
+	Pickup:
+		TNT1 A 0 A_GiveInventory ("ArmorBonus", random(1, 2))
+		Stop
+	}
+}
+
+ACTOR RandomStimpack : CustomInventory replaces Stimpack
+{
+	Inventory.PickupMessage "$GOTSTIM"
+	States
+	{
+	Spawn:
+		STIM A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory ("Health", random(1, 15))
+		Stop
+	}
+}
+
+ACTOR RandomMedkit : CustomInventory replaces MediKit
+{
+	Inventory.PickupMessage "$GOTMEDIKIT"
+	States
+	{
+	Spawn:
+		MEDI A -1
+		Stop
+	Pickup:
+		TNT1 A 0 A_GiveInventory ("Health", random(1, 75))
+		Stop
+	}
+}
+
+ACTOR RandomBarrel : ExplosiveBarrel replaces ExplosiveBarrel
+{
+	States
+	{
+	Spawn:
+		BAR1 A 0 A_SetHealth (random(1, 40))
+		BAR1 ABCB 6
+		Wait
+	Death:
+		BEXP B 5
+		BEXP C 0 A_StartSound ("world/barrelx")
+		BEXP C 5 A_Explode (random(50, 150), random(32, 256))
+		BEXP D 5
+		BEXP E 10 Bright
+		Stop
+	}
+}
+
+ACTOR RNGRocket : FastProjectile replaces Rocket
+{
+	Speed 40
+	Damage 0
+	Radius 5
+	Height 5
+	DeathSound "weapons/rocklx"
+	Projectile
+	States
+	{
+	Spawn:
+		MISL A 1 A_Jump (255, "Looping")
+	Looping:
+		MISL A 0 Bright A_ScaleVelocity (frandom(0.5, 1.75))
+		MISL A 1 Bright
+		Wait
+	Death:
+		MISL B 3 Bright A_Explode (random(40, 120 ), 200)
+		MISL C 6 Bright
+		MISL D 9 Bright
+		Stop
+	}
+}
+ACTOR RNGPLasmaBall : FastProjectile replaces PlasmaBall
+{
+	Speed 50
+	Radius 8
+	Height 8
+	Projectile
+	DeathSound "weapons/plasmax"
+	States
+	{
+	Spawn:
+		PLSS A 1 A_Jump (255, "Looping")
+	Looping:
+		PLSS A 0 A_ScaleVelocity (frandom(0.5, 2))
+		PLSS AB 2 Bright
+		Wait
+	Death:
+		PLSE A 3 Bright A_Explode (random(10, 100), 100)
+		PLSE B 4 Bright
+		PLSE C 5 Bright
+		PLSE D 6 Bright
+		PLSE E 7 Bright
+		Stop
+	}
+}
+ACTOR RNGBFGBall
+{
+	Speed 20
+	Radius 12
+	Height 12
+	Projectile
+	DeathSound "weapons/bfgx"
+	States
+	{
+	Spawn:
+		BALL A 1 Bright
+		Loop
+	Death:
+		BFE1 A 0 A_Explode (random(100, 1000), 400)
+		BFE1 A random(1, 3) A_BFGSpray ("BFGExtra", random(1, 90), random(50, 500), random(6, 75), random(1, 2048))
+		BFE1 B random(2, 4)
+		BFE1 C random(3, 5)
+		BFE1 D random(4, 6)
+		BFE1 E random(5, 7)
+		BFE1 F random(6, 8)
+		Stop
+	}
+}
+
+ACTOR Puff : BulletPuff replaces BulletPuff
+{	
+	+NOBLOCKMAP
+	+NOGRAVITY
+	+ALLOWPARTICLES
+	VSpeed 0
+	states
+	{
+	Spawn:
+		PUFG ABCDEFGHI 1 Bright
+		Stop
+	Melee:
+		PUFG FGHI 2 Bright
+		Stop
+	}
+}

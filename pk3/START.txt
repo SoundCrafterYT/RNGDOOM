@@ -1,0 +1,7 @@
+#library "start"
+#include "zcommon.acs"
+
+script 1 ENTER
+{
+	GiveInventory("Clip", random(10, 100));
+}
