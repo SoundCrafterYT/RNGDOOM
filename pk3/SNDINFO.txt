@@ -1,0 +1,229 @@
+$pitchshiftrange 12
+Pistol DSPISTOL
+PistolSquib DSPISTL3
+PistolExplode DSPISTL2
+Deagle DSDEAGLE
+Shotgun DSSHOTGN
+ShotSquib DSSHTGN2
+ShotExplode DSSHTGN3
+SShotgun DSDSHTGN
+SgRl1 DSDBOPN
+SgRl2 DSDBCLS
+SgRl3 DSDBLOAD
+Reload DSSHTGRL
+Re- DSSGCCK1
+-load DSSGCCK2
+Pistol2 DSPISTOL
+HeavyChaingun DSCHNGUN
+Minigun DSCGLP02
+RLauncher DSRLAUNC
+Plasma DSPLASMA
+Railgun DSRAILGN
+BFG9000 DSBFG
+BFGSquib DSBFG2
+BFGExplode DSBFEXPL
+PickupSound DSWPNUP
+Punch DSPUNCH
+Crit DSCRIT
+Crit2 DSCRIT2
+CritLoop DSCRITLP
+PlasmaExplode DSPLMEXP
+SpinUp DSCHGNUP
+SpinDown DSCHGNDN
+SpinLoop DSCHGNLP
+$playersound	player	male	*death		dspldeth
+$playersound	player	male	*xdeath		dspdiehi
+$playersound	player	male	*gibbed		dsslop
+$playersound	player	male	*pain100	dsplpain
+$playersounddup	player	male	*pain75		*pain100
+$playersounddup	player	male	*pain50		*pain100
+$playersounddup	player	male	*pain25		*pain100
+$playersound	player	male	*grunt		dsoof
+$playersounddup	player	male	*land		*grunt
+$playersound	player	male	*jump		dsjump
+$playersound	player	male	*fist		dspunch
+$playersound	player	male	*usefail	dsnoway
+weaponssawup			dssawup
+weaponssawidle			dssawidl
+weaponssawfull			dssawful
+weaponssawhit			dssawhit
+weaponsrocklx			dsbarexp
+weaponsplasmax			dsfirxpl
+weaponsbfgx			dsrxplod
+miscgibbed			dsslop
+$random gruntsight 		{ gruntsight1  gruntsight2  gruntsight3 }
+$random gruntdeath		{ gruntdeath1  gruntdeath2  gruntdeath3 }
+gruntsight1			dsposit1
+gruntsight2			dsposit2
+gruntsight3			dsposit3
+gruntactive			dsposact
+gruntpain			dspopain
+gruntdeath1			dspodth1
+gruntdeath2			dspodth2
+gruntdeath3			dspodth3
+gruntattack			dspistol
+$random shotguysight		{ shotguysight1  shotguysight2  shotguysight3 }
+$random shotguydeath		{ shotguydeath1  shotguydeath2  shotguydeath3 }
+shotguysight1			dsposit1
+shotguysight2			dsposit2
+shotguysight3			dsposit3
+shotguyactive			dsposact
+shotguypain			dspopain
+shotguydeath1			dspodth1
+shotguydeath2			dspodth2
+shotguydeath3			dspodth3
+shotguyattack			dsshotgn
+vilesight			dsvilsit
+vileactive			dsvilact
+vilepain			dsvipain
+viledeath			dsvildth
+vileraise			dsslop
+vilestart			dsvilatk
+vilestop			dsbarexp
+vilefirestrt			dsflamst
+vilefirecrkl			dsflame
+skeletonsight			dsskesit
+skeletonactive			dsskeact
+skeletonpain			dspopain
+skeletonmelee			dsskepch
+skeletonswing			dsskeswg
+skeletondeath			dsskedth
+skeletonattack			dsskeatk
+skeletontracex			dsbarexp
+fatsosight			dsmansit
+fatsoactive			dsposact
+fatsopain			dsmnpain
+fatsoraiseguns			dsmanatk
+fatsodeath			dsmandth
+fatsoattack			dsfirsht
+fatsoshotx			dsfirxpl
+$random chainguysight		{ chainguysight1  chainguysight2  chainguysight3 }
+$random chainguydeath		{ chainguydeath1  chainguydeath2  chainguydeath3 }
+chainguysight1			dsposit1
+chainguysight2			dsposit2
+chainguysight3			dsposit3
+chainguyactive			dsposact
+chainguypain			dspopain
+chainguydeath1			dspodth1
+chainguydeath2			dspodth2
+chainguydeath3			dspodth3
+chainguyattack			dsshotgn
+$random impsight		{ impsight1  impsight2 }
+$random impdeath		{ impdeath1  impdeath2 }
+impsight1			dsbgsit1
+impsight2			dsbgsit2
+impactive			dsbgact
+imppain			dspopain
+impmelee			dsclaw
+impdeath1			dsbgdth1
+impdeath2			dsbgdth2
+impattack			dsfirsht
+impshotx			dsfirxpl
+demonsight			dssgtsit
+demonactive			dsdmact
+demonpain			dsdmpain
+demonmelee			dssgtatk
+demondeath			dssgtdth
+spectresight			dssgtsit
+spectreactive			dsdmact
+spectrepain			dsdmpain
+spectremelee			dssgtatk
+spectredeath			dssgtdth
+cacosight			dscacsit
+cacoactive			dsdmact
+cacopain			dsdmpain
+cacodeath			dscacdth
+cacoattack			dsfirsht
+cacoshotx			dsfirxpl
+baronsight			dsbrssit
+baronactive			dsdmact
+baronpain			dsdmpain
+baronmelee			dsclaw
+barondeath			dsbrsdth
+baronattack			dsfirsht
+baronshotx			dsfirxpl
+knightsight			dskntsit
+knightactive			dsdmact
+knightpain			dsdmpain
+knightdeath			dskntdth
+skullactive			dsdmact
+skullpain			dsdmpain
+skullmelee			dssklatk
+skulldeath			dsfirxpl
+spidersight			dsspisit
+spideractive			dsdmact
+spiderpain			dsdmpain
+spiderattack			dsshotgn
+spiderdeath			dsspidth
+spiderwalk			dsmetal
+babysight			dsbspsit
+babyactive			dsbspact
+babypain			dsdmpain
+babydeath			dsbspdth
+babywalk			dsbspwlk
+babyattack			dsplasma
+babyshotx			dsfirxpl
+cybersight			dscybsit
+cyberactive			dsdmact
+cyberpain			dsdmpain
+cyberdeath			dscybdth
+cyberhoof			dshoof
+painsight			dspesit
+painactive			dsdmact
+painpain			dspepain
+paindeath			dspedth
+wolfsssight			dssssit
+wolfssactive			dsposact
+wolfsspain			dspopain
+wolfssdeath			dsssdth
+wolfssattack			dsshotgn
+keenpain			dskeenpn
+keendeath			dskeendt
+brainsight			dsbossit
+brainpain			dsbospn
+braindeath			dsbosdth
+brainspit			dsbospit
+braincube			dsboscub
+braincubeboom			dsfirxpl
+$alias brainspawn		miscteleport
+worldbarrelx			dsbarexp
+worlddrip			dsempty
+worldwatersplash		dsempty
+worldsludgegloop		dsempty
+worldlavasizzle		dsempty
+platspt1_strt			dspstart
+platspt1_stop			dspstop
+platspt1_mid			dsstnmov
+doorsdr1_open			dsdoropn
+doorsdr1_clos			dsdorcls
+doorsdr2_open			dsbdopn
+doorsdr2_clos			dsbdcls
+miscsecret			dssecret
+miscw_pkup			dswpnup		
+miscp_pkup			dsgetpow	
+misci_pkup			dsitemup	
+misck_pkup			dsitemup	
+miscspawn			dsitmbk		
+miscchat			dsradio		
+miscchat2			dstink		
+switchesnormbutn		dsswtchn
+switchesexitbutn		dsswtchx
+miscteleport			dstelept
+menuactivate			dsswtchn	
+menubackup			dsswtchn	
+menuprompt			dsswtchn	
+menucursor			dspstop		
+menuchange			dsstnmov	
+menuinvalid			dsoof		
+menudismiss			dsswtchx	 
+menuchoose			dspistol	
+menuclear			dsswtchx	 
+$alias menuadvance menuchoose	 
+$random menuquit1 { playermaledeath1 demonpain gruntpain miscgibbed miscteleport gruntsight1 gruntsight3 demonmelee }
+$random menuquit2 { vileactive miscp_pkup braincube miscgibbed skeletonswing knightdeath babyactive demonmelee  }
+$alias				intermissiontick			weaponspistol
+$alias				intermissioncooptotal		*death
+$alias				intermissionnextstage		weaponsrocklx
+$alias				intermissionpaststats		weaponsshotgr
+$alias				intermissionpastcoopstats	weaponsshotgr
+$alias				intermissionpastdmstats	*gibbed

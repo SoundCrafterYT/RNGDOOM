@@ -1,0 +1,289 @@
+height 32;
+MonospaceFonts true, "0";
+
+statusbar normal 
+{
+    drawimage "STBAR", 0, 168;
+    drawimage "STTPRCNT", 90, 171;
+    drawimage "STTPRCNT", 221, 171;
+    drawnumber 3, HUDFONT_DOOM, untranslated, ammo1, 44, 171;
+    drawnumber 3, HUDFONT_DOOM, untranslated, health, 90, 171;
+    drawnumber 3, HUDFONT_DOOM, untranslated, armor, 221, 171;
+
+    drawswitchableimage keyslot 2 && 5, "nullimage", "STKEYS0", "STKEYS3", "STKEYS6", 239, 171;
+    drawswitchableimage keyslot 3 && 6, "nullimage", "STKEYS1", "STKEYS4", "STKEYS7", 239, 181;
+    drawswitchableimage keyslot 1 && 4, "nullimage", "STKEYS2", "STKEYS5", "STKEYS8", 239, 191;
+
+    drawnumber 3, INDEXFONT, gold, ammo Clip, 288, 173;
+    drawnumber 3, INDEXFONT, gold, ammo Shell, 288, 179;
+    drawnumber 3, INDEXFONT, gold, ammo RocketAmmo, 288, 185;
+    drawnumber 3, INDEXFONT, gold, ammo Cell, 288, 191;
+
+    drawnumber 3, INDEXFONT, gold, ammocapacity Clip, 314, 173;
+    drawnumber 3, INDEXFONT, gold, ammocapacity Shell, 314, 179;
+    drawnumber 3, INDEXFONT, gold, ammocapacity RocketAmmo, 314, 185;
+    drawnumber 3, INDEXFONT, gold, ammocapacity Cell, 314, 191;
+	IsSelected RNGPistol, RNGChaingun
+	{
+		drawimage "MAGAZINE", 117, 186;
+	}
+	IsSelected RNGShotgun
+	{
+		InInventory SgScopeUpgrade
+		{
+			drawimage "50BMG", 116, 190;
+		}
+		InInventory not SgScopeUpgrade
+		{
+			drawimage "SHELL", 116, 190;
+		}
+	}
+	IsSelected RNGSShotgun
+	{
+		InInventory PowerSSG || ScopeUpgrade
+		{
+			drawimage "50BMG", 116, 190;
+		}
+		InInventory not PowerSSG || ScopeUpgrade
+		{
+			drawimage "SHELL", 116, 190;
+			InInventory NailShells
+			{
+				drawimage "NAIL", 116, 190;
+			}
+		}
+	}
+	IsSelected RNGRPG
+	{
+		drawimage "ROCKET", 117, 185;
+	}
+	IsSelected RNGPlasma, RNGBFG
+	{
+		drawimage "CELLS", 115, 185;
+	}
+
+	drawmugshot 5, 143, 168;
+}
+
+statusbar fullscreen, fullscreenoffsets
+{
+	IfCVarInt hud_fullscreenstyle, 0, equal //RNGDoom Default
+	{
+		drawimage "AMMO2", -110, -30;
+		drawnumber 3, CONFONT, untranslated, ammo1, alignment(left), -70 , -30;
+		
+		drawimage "LOAD2", -110, -39;
+		IsSelected RNGPistol, RNGChaingun
+		{
+			InInventory SquibBullets
+			{
+				drawimage "SQUIB", -70, -39;
+			}
+			InInventory not SquibBullets
+			{
+				drawimage "CLIP", -70, -39;
+			}
+		}
+		IsSelected RNGShotgun
+		{
+			InInventory SquibShells
+			{
+				drawimage "SQUIB", -70, -39;
+			}
+			InInventory not SquibShells || SgScopeUpgrade
+			{
+				drawimage "SHELLS", -70, -39;
+			}
+			InInventory SgScopeUpgrade
+			{
+				drawimage "BMG", -70, -39;
+			}
+		}
+		IsSelected RNGSShotgun
+		{
+			InInventory PowerSSG || ScopeUpgrade
+			{
+				drawimage "BMG", -70, -39;
+			}
+			InInventory not PowerSSG || ScopeUpgrade
+			{
+				InInventory not NailShells
+				{
+					drawimage "SHELLS", -70, -39;
+				}
+			}
+			InInventory NailShells
+			{
+				drawimage "NAILS", -70, -39;
+			}
+		}
+		IsSelected RNGRPG
+		{
+			drawimage "ROCKET2", -70, -39;
+		}
+		IsSelected RNGPlasma, RNGBFG
+		{
+			drawimage "CELL", -70, -39;
+		}
+		
+		drawimage "HEALTH2", 30, -30;
+		drawnumber 3, CONFONT, untranslated, health, alignment(left), 86, -30;
+		drawstring CONFONT, untranslated, "hp", 129, -30;
+		
+		drawimage "ARMOR2", 38, -39;
+		drawnumber 3, CONFONT, untranslated, armor, alignment(left), 86, -39;
+		drawstring CONFONT, untranslated, "%", 121, -39;
+		
+		drawswitchableimage keyslot 2, "nullimage", "STKEYS0", 30, -48;
+		drawswitchableimage keyslot 3, "nullimage", "STKEYS1", 38, -48;
+		drawswitchableimage keyslot 1, "nullimage", "STKEYS2", 46, -48;
+		drawswitchableimage keyslot 5, "nullimage", "STKEYS3", 54, -48;
+		drawswitchableimage keyslot 6, "nullimage", "STKEYS4", 62, -48;
+		drawswitchableimage keyslot 4, "nullimage", "STKEYS5", 70, -48;
+	}
+	IfCVarInt hud_fullscreenstyle, 1, equal //Doom 64
+	{
+		drawimage "AMMO", -100, -5, centerbottom;
+		drawnumber 3, HUDFONT_DOOM, untranslated, ammo1, alignment(center), -100, -30;
+		
+		drawimage "LOAD", -40, -5, centerbottom;
+		IsSelected RNGPistol, RNGChaingun
+		{
+			drawimage "MAGAZINE", -48, -18;
+		}
+		IsSelected RNGShotgun
+		{
+			InInventory SgScopeUpgrade
+			{
+				drawimage "50BMG", -50, -15;
+			}
+			InInventory not SgScopeUpgrade
+			{
+				drawimage "SHELL", -50, -15;
+			}
+		}
+		IsSelected RNGSShotgun
+		{
+			InInventory NailShells
+			{
+				drawimage "NAIL", -50, -15;
+			}
+			InInventory PowerSSG || ScopeUpgrade
+			{
+				drawimage "50BMG", -50, -15;
+			}
+			InInventory not PowerSSG || ScopeUpgrade
+			{
+				drawimage "SHELL", -50, -15;
+			}
+		}
+		IsSelected RNGRPG
+		{
+			drawimage "ROCKET", -49, -17;
+		}
+		IsSelected RNGPlasma, RNGBFG
+		{
+			drawimage "CELLS", -51, -16;
+		}
+		
+		drawimage "HEALTH", 40, -5, centerbottom;
+		drawnumber 3, HUDFONT_DOOM, untranslated, health, alignment(center), 40, -30;
+		
+		drawimage "ARMOR", 100, -5, centerbottom;
+		drawnumber 3, HUDFONT_DOOM, untranslated, armor, alignment(center), 100, -30;
+		
+		drawswitchableimage keyslot 2, "nullimage", "STKEYS0", -142, -28;
+		drawswitchableimage keyslot 3, "nullimage", "STKEYS1", -142, -20;
+		drawswitchableimage keyslot 1, "nullimage", "STKEYS2", -142, -12;
+		drawswitchableimage keyslot 5, "nullimage", "STKEYS3", -134, -29;
+		drawswitchableimage keyslot 6, "nullimage", "STKEYS4", -134, -21;
+		drawswitchableimage keyslot 4, "nullimage", "STKEYS5", -134, -13;
+	}
+	IfCVarInt hud_fullscreenstyle, 2, equal //ZDoom Default
+	{
+		//health
+		drawimage "MEDIA0", 20, -2, centerbottom;
+		drawnumber 3, HUDFONT_DOOM, untranslated, health, drawshadow, 82, -20;
+
+		//armor
+		drawimage armoricon, 20, -24, centerbottom;
+		drawnumber 3, HUDFONT_DOOM, untranslated, armor, drawshadow, whennotzero, 82, -39;
+
+		//ammo
+		//drawimage ammoicon1, -14, -4, centerbottom;
+		drawnumber 3, HUDFONT_DOOM, untranslated, ammo1, drawshadow, -25, -20;
+		IsSelected RNGPistol, RNGChaingun
+		{
+			drawimage "MAGAZINE", -19, -7;
+		}
+		IsSelected RNGShotgun
+		{
+			InInventory SgScopeUpgrade
+			{
+				drawimage "50BMG", -21, -4;
+			}
+			InInventory not SgScopeUpgrade
+			{
+				drawimage "SHELL", -21, -4;
+			}
+		}
+		IsSelected RNGSShotgun
+		{
+			InInventory NailShells
+			{
+				drawimage "NAIL", -21, -4;
+			}
+			InInventory PowerSSG || ScopeUpgrade
+			{
+				drawimage "50BMG", -21, -4;
+			}
+			InInventory not PowerSSG || ScopeUpgrade
+			{
+				drawimage "SHELL", -21, -4;
+			}
+		}
+		IsSelected RNGRPG
+		{
+			drawimage "ROCKA0", -12, -6;
+		}
+		IsSelected RNGPlasma, RNGBFG
+		{
+			drawimage "CELLS", -22, -5;
+		}
+
+		usesammo
+		{
+			//secondary ammo and inventory
+			usessecondaryammo
+			{
+				drawimage ammoicon2, -14, -22, centerbottom;
+				drawnumber 3, HUDFONT_DOOM, untranslated, ammo2, drawshadow, -25, -38;
+				inventorybarnotvisible
+				{
+					drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, HUDFONT_DOOM, -14, -39, -26, -56, untranslated;
+				}
+			}
+			//no secondary ammo
+			usessecondaryammo not
+			{
+				inventorybarnotvisible
+				{
+					drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, HUDFONT_DOOM, -14, -21, -26, -38, untranslated;
+				}
+			}
+		}
+    
+		// no ammo but inventory
+		usesammo not
+		{
+			inventorybarnotvisible
+			{
+				drawselectedinventory centerbottom, drawshadow, alwaysshowcounter, HUDFONT_DOOM, -14, -3, -26, -20, untranslated;
+			}
+		}
+		gamemode singleplayer
+		{
+			drawkeybar 6, vertical, reverserows, auto, -10, 2, 0, 3, auto;
+		}
+	}
+}

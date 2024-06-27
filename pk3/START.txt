@@ -1,0 +1,70 @@
+#library "start"
+#include "zcommon.acs"
+
+script 3 ENTER
+{
+	SetFont("CONFONT");
+	HudMessage(s:"RNGDOOM PTB V0.85"; HUDMSG_PLAIN, 0, CR_WHITE, 1.0, 0.0, 0.0);
+}
+script 1 ENTER
+{
+	If (CheckInventory("RNGAmmo")==0)
+	{
+		GiveInventory("Clip", random(1, 100));
+		GiveInventory("RNGAmmo", 1);
+	}
+}
+script 4 (void)
+{
+	GiveInventory("RNGAmmo", 1);
+}
+script 2 ENTER
+{
+	If(GameSkill() == SKILL_VERY_HARD)
+	{
+		GiveInventory("First50BMGUse", 1);
+		SetCVAR("rng_malfunctionchance", 256);
+		SetCVAR("rng_skipcursed", true);
+		SetCVAR("rng_always50bmg", true);
+		SetCVAR("rng_alwayscrit", true);
+	}
+	else
+	{
+		SetCVAR("rng_malfunctionchance", 2);
+		SetCVAR("rng_skipcursed", false);
+		SetCVAR("rng_always50bmg", false);
+		SetCVAR("rng_alwayscrit", false);
+	}
+}
+script 8 (void)
+{
+	If(Gameskill() == SKILL_VERY_HARD)
+	{
+		SpawnProjectile (0, "InstableBFGBall", GetActorAngle(0) >> 8, 0, -999, 0, 128);
+		SpawnProjectile (0, "InstableBFGBall", GetActorAngle(0) >> 8, 0, -999, 0, 128);
+		SpawnProjectile (0, "InstableBFGBall", GetActorAngle(0) >> 8, 0, -999, 0, 128);
+		SpawnProjectile (0, "InstableBFGBall", GetActorAngle(0) >> 8, 0, -999, 0, 128);
+	}
+}
+script "DeathExecuter" DEATH
+{
+	ACS_Execute (8, 0, 0, 0, 0);
+}
+script "WadChecker" (void)
+{
+	GetLevelInfo(LEVELINFO_CLUSTERNUM);
+}
+script "DoubleAmmoCapacity" (void)
+{
+	if (CheckInventory("DoubleAmmoOnce")==1)
+	{
+		SetAmmoCapacity ("Clip", GetAmmoCapacity("Clip") * 2);
+		SetAmmoCapacity ("Shell", GetAmmoCapacity("Shell") * 2);
+		SetAmmoCapacity ("RocketAmmo", GetAmmoCapacity("RocketAmmo") * 2);
+		SetAmmoCapacity ("Cell", GetAmmoCapacity("Cell") * 2);
+	}
+	else if (CheckInventory("DoubleAmmoOnce")==2)
+	{
+		
+	}
+}

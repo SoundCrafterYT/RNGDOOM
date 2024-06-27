@@ -1,0 +1,19 @@
+#library "cvars"
+#include "zcommon.acs"
+
+script "MalfunctionChance" (void)
+{
+	SetResultValue (GetCVar("rng_malfunctionchance"));
+}
+script "Always50BMGAmmo" (void)
+{
+	SetResultValue (GetCvar("rng_always50bmg"));
+}
+script "AlwaysCritical" (void)
+{
+	SetResultValue (GetCVar("rng_alwayscrit"));
+}
+script "Recoil" (void)
+{
+	SetResultValue (GetCVar("rng_weaponrecoil"));
+}

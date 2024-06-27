@@ -1,0 +1,12 @@
+server int rng_malfunctionchance = 2;
+server bool rng_skipcursed = false;
+server bool rng_always50bmg = false;
+server bool rng_alwayscrit = false;
+server bool rng_weaponrecoil = false;
+user int hud_fullscreenstyle = 0;
+//user bool rng_fxstyle = 0;
+/*
+DON'T UNCOMMENT IT!
+IT IS NOT IMPLEMENTED YET AND IT WILL
+NOT WORK!
+*/

@@ -1,0 +1,54 @@
+DECAL BulletDecal1
+{
+	Pic DECAL1
+}
+DECAL BulletDecal2
+{
+	Pic DECAL2
+}
+DECAL BulletDecal3
+{
+	Pic DECAL3
+}
+DECAL BulletDecal4
+{
+	Pic DECAL4
+}
+DECAL BulletDecal5
+{
+	Pic DECAL5
+}
+DECAL BulletDecal6
+{
+	Pic DECAL6
+}
+DECAL BulletDecal7
+{
+	Pic DECAL7
+}
+DECAL BulletDecal8
+{
+	Pic DECAL8
+}
+DECAL BulletDecal9
+{
+	Pic DECAL9
+}
+DECAL BulletDecal10
+{
+	Pic DECAL10
+}
+Decalgroup Bullet
+{
+	BulletDecal1 1
+	BulletDecal2 1
+	BulletDecal3 1
+	BulletDecal4 1
+	BulletDecal5 1
+	BulletDecal6 1
+	BulletDecal7 1
+	BulletDecal8 1
+	BulletDecal9 1
+	BulletDecal10 1
+}
+Generator NailFlechette Bullet
