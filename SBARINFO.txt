@@ -29,22 +29,15 @@ statusbar normal
 	}
 	IsSelected RNGShotgun
 	{
-		InInventory SgScopeUpgrade
-		{
-			drawimage "50BMG", 116, 190;
-		}
-		InInventory not SgScopeUpgrade
-		{
-			drawimage "SHELL", 116, 190;
-		}
+		drawimage "SHELL", 116, 190;
 	}
 	IsSelected RNGSShotgun
 	{
-		InInventory PowerSSG || ScopeUpgrade
+		InInventory PowerSSG
 		{
 			drawimage "50BMG", 116, 190;
 		}
-		InInventory not PowerSSG || ScopeUpgrade
+		InInventory not PowerSSG
 		{
 			drawimage "SHELL", 116, 190;
 			InInventory NailShells
@@ -90,22 +83,18 @@ statusbar fullscreen, fullscreenoffsets
 			{
 				drawimage "SQUIB", -70, -39;
 			}
-			InInventory not SquibShells || SgScopeUpgrade
+			InInventory not SquibShells
 			{
 				drawimage "SHELLS", -70, -39;
-			}
-			InInventory SgScopeUpgrade
-			{
-				drawimage "BMG", -70, -39;
 			}
 		}
 		IsSelected RNGSShotgun
 		{
-			InInventory PowerSSG || ScopeUpgrade
+			InInventory PowerSSG
 			{
 				drawimage "BMG", -70, -39;
 			}
-			InInventory not PowerSSG || ScopeUpgrade
+			InInventory not PowerSSG
 			{
 				InInventory not NailShells
 				{
@@ -153,14 +142,7 @@ statusbar fullscreen, fullscreenoffsets
 		}
 		IsSelected RNGShotgun
 		{
-			InInventory SgScopeUpgrade
-			{
-				drawimage "50BMG", -50, -15;
-			}
-			InInventory not SgScopeUpgrade
-			{
-				drawimage "SHELL", -50, -15;
-			}
+			drawimage "SHELL", -50, -15;
 		}
 		IsSelected RNGSShotgun
 		{
@@ -168,11 +150,11 @@ statusbar fullscreen, fullscreenoffsets
 			{
 				drawimage "NAIL", -50, -15;
 			}
-			InInventory PowerSSG || ScopeUpgrade
+			InInventory PowerSSG
 			{
 				drawimage "50BMG", -50, -15;
 			}
-			InInventory not PowerSSG || ScopeUpgrade
+			InInventory not PowerSSG
 			{
 				drawimage "SHELL", -50, -15;
 			}
@@ -218,14 +200,7 @@ statusbar fullscreen, fullscreenoffsets
 		}
 		IsSelected RNGShotgun
 		{
-			InInventory SgScopeUpgrade
-			{
-				drawimage "50BMG", -21, -4;
-			}
-			InInventory not SgScopeUpgrade
-			{
-				drawimage "SHELL", -21, -4;
-			}
+			drawimage "SHELL", -21, -4;
 		}
 		IsSelected RNGSShotgun
 		{
@@ -233,11 +208,11 @@ statusbar fullscreen, fullscreenoffsets
 			{
 				drawimage "NAIL", -21, -4;
 			}
-			InInventory PowerSSG || ScopeUpgrade
+			InInventory PowerSSG
 			{
 				drawimage "50BMG", -21, -4;
 			}
-			InInventory not PowerSSG || ScopeUpgrade
+			InInventory not PowerSSG
 			{
 				drawimage "SHELL", -21, -4;
 			}

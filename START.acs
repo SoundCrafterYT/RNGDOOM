@@ -1,12 +1,12 @@
 #library "start"
 #include "zcommon.acs"
 
-script 3 ENTER
+script "Watermark" ENTER
 {
 	SetFont("CONFONT");
-	HudMessage(s:"RNGDOOM PTB V0.85"; HUDMSG_PLAIN, 0, CR_WHITE, 1.0, 0.0, 0.0);
+	HudMessage(s:"RNGDOOM PTB V0.9"; HUDMSG_PLAIN, 0, CR_WHITE, 1.0, 0.0, 0.0);
 }
-script 1 ENTER
+script "AmmoStarter" ENTER
 {
 	If (CheckInventory("RNGAmmo")==0)
 	{
@@ -14,11 +14,7 @@ script 1 ENTER
 		GiveInventory("RNGAmmo", 1);
 	}
 }
-script 4 (void)
-{
-	GiveInventory("RNGAmmo", 1);
-}
-script 2 ENTER
+script "CVarSkillChecker" ENTER
 {
 	If(GameSkill() == SKILL_VERY_HARD)
 	{
@@ -36,7 +32,11 @@ script 2 ENTER
 		SetCVAR("rng_alwayscrit", false);
 	}
 }
-script 8 (void)
+script "ChaingunBurstMode" (void)
+{
+	SetResultValue (GameSkill());
+}
+script 1 (void)
 {
 	If(Gameskill() == SKILL_VERY_HARD)
 	{
@@ -48,7 +48,7 @@ script 8 (void)
 }
 script "DeathExecuter" DEATH
 {
-	ACS_Execute (8, 0, 0, 0, 0);
+	ACS_Execute (1, 0, 0, 0, 0);
 }
 script "WadChecker" (void)
 {
