@@ -667,7 +667,7 @@ ACTOR RNGShotgun : Shotgun
 	AutoFire:
 		ASTG A 0 A_GunFlash
 		ASTG A 0 A_StartSound ("Shotgun", 1, CHANF_OVERLAP)
-		ASTG A 0 A_FireBullets (frandom(8, 14), 0, random(2, 10), random(1, 60), "Puff", 1, random(1, 2048), "Tracer", -5, 0)
+		ASTG A 0 A_FireBullets (frandom(5, 12), 0, random(2, 10), random(1, 25), "Puff", 1, random(1, 2048), "Tracer", -5, 0)
 		ASTG A 1 A_WeaponOffset (0, 36)
 		ASTG A 1 A_WeaponOffset (0, 35)
 		ASTG A 1 A_WeaponOffset (0, 34)
@@ -858,7 +858,7 @@ ACTOR RNGSShotgun : SuperShotgun //This might be the longest code for this weapo
 		QSSG A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 0, 4096, "Tracer", -5, 0)
 		QSSG A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 0, 4096, "Tracer", -5, 0)
 		QSSG A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 0, 4096, "Tracer", -5, 0)
-		TNT1 A 0 A_Jump (256, 6)
+		TNT1 A 0 A_Jump (256, 5)
 		QSSG A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 1, 4096, "Tracer", -5, 0)
 		QSSG A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 0, 4096, "Tracer", -5, 0)
 		QSSG A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 0, 4096, "Tracer", -5, 0)
@@ -1109,6 +1109,7 @@ ACTOR RNGChaingun : Chaingun
 	States
 	{
 	Ready:
+		CHGG A 0 A_CheckReload
 		CHGG A 0 A_SetInventory ("Bursts", 0)
 		CHGG A 0 A_JumpIfInventory ("HeavyUpgrade", 1, "HeavyReady")
 		CHGG A 1 A_WeaponReady
@@ -1146,26 +1147,37 @@ ACTOR RNGChaingun : Chaingun
 		Goto Ready
 	HeavySpin:
 		MNGN A 0 A_StartSound ("SpinUp", 1)
-		MNGN A 10
+		/*MNGN A 10
 		MNGN B 8
 		MNGN C 6
 		MNGN D 4
 		MNGN A 2
+		MNGN C 1*/
+		MNGN A 7
+		MNGN B 6
+		MNGN C 5
+		MNGN D 4
+		MNGN A 3
+		MNGN B 2
 		MNGN C 1
+		MNGN D 1
+		MNGN ACA 1
 		Goto HeavyFire
 	Release:
 		MNGN A 0 A_WeaponOffset (0, 32)
 		MNGN A 0 A_StartSound ("SpinDown", 1)
-		MNGN ACA 1
-		MNGN B 1
-		MNGN C 1
-		MNGN D 2
-		MNGN A 3
-		MNGN B 4
-		MNGN C 5
-		MNGN D 6
+		MNGN AC 1
+		MNGN A 2
+		MNGN B 3
+		MNGN C 4
+		MNGN D 5
+		MNGN A 6
+		MNGN B 7
+		MNGN C 8
+		MNGN D 9
 		Goto HeavyReady
 	HeavyFire:
+		MNGN A 0 A_JumpIfNoAmmo ("Release")
 		MNGN A 0 A_GunFlash
 		MNGN A 0 A_QuakeEx (9, 5, 0, 3, 0, 64, None, QF_SCALEDOWN|QF_RELATIVE, 0, 0, 0, 0, 0, 5)
 		MNGN A 0 A_WeaponOffset (random(-2, 2), random(30, 34))
@@ -1600,6 +1612,7 @@ ACTOR AutoShotgun : CustomInventory
 		Stop
 	Pickup:
 		TNT1 A 0 A_GiveInventory ("AutoUpgrade")
+		TNT1 A 0 A_GiveInventory ("RNGShotgun")
 		TNT1 A 0 A_GiveInventory ("Shell", random(1, 16))
 		Stop
 	}
@@ -1634,6 +1647,7 @@ ACTOR QuadSShotgun : CustomInventory
 		Stop
 	Pickup:
 		TNT1 A 0 A_GiveInventory ("QuadUpgrade")
+		TNT1 A 0 A_GiveInventory ("RNGSShotgun")
 		TNT1 A 0 A_GiveInventory ("Shell", random(1, 16))
 	}
 }

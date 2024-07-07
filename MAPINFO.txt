@@ -54,18 +54,3 @@ Skill Impossible
 	Aggressiveness = 1
 	ReplaceActor = "RandomBarrel", "RandomPowderBarrel"
 }
-Skill UltimateDoom 
-{
-	SpawnFilter = hard
-	PicName = "M_UDOOM"
-	AmmoFactor = 1
-	DamageFactor = 1
-	DropAmmoFactor = 1
-	Aggressiveness = 1
-	MustConfirm = "Same as Hurt me plenty, but no upgrades."
-	ReplaceActor = "DeagleUpgrade", "PickupPistol"
-	ReplaceActor = "ScopedShotgun", "PickupShotgun"
-	ReplaceActor = "SShotgunUpgrade", "PickupSShotgun"
-	ReplaceActor = "ChaingunUpgrade", "PickupChaingun"
-	ReplaceActor = "PickupMultiRocket", "PickupRLauncher"
-}
