@@ -2261,6 +2261,7 @@ ACTOR Puff
 	states
 	{
 	Spawn:
+		TNT1 AAAA 0 A_SpawnItemEx ("PuffSmoke", 0.0, 0.0, -15.0, frandom(-0.2, 0.2), frandom(-0.2, 0.2), frandom(0, 0.5)) 
 		//PUFG ABCDEF 1 Bright
 		//PUFG GHI 2 Bright
 		PUFG A 1 Bright
@@ -2284,7 +2285,7 @@ ACTOR PuffSmoke
 	States
 	{
 	Spawn:
-		SMOK BCDEFGH 2
+		SMOK BCDEFGH 4
 		Stop
 	}
 }

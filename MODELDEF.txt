@@ -6,6 +6,7 @@ Model Tracer
    Scale 2.0 0.5 0.5
    Offset 0 0 0
    PITCHFROMMOMENTUM
+   CORRECTPIXELSTRETCH
     
    FrameIndex TRAC A 0 0
 }
