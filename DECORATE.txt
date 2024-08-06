@@ -2476,3 +2476,9 @@ ACTOR DoubleAmmoOnce : Inventory
 {
 	Inventory.MaxAmount 2
 }
+ACTOR Rage : Inventory
+{
+	+COUNTITEM
+	+INVENTORY.PERSISTENTPOWER
+	Inventory.MaxAmount 10
+}

@@ -1,0 +1,4 @@
+addkeysection "RNGDOOM Keybinds" RNGDoomKeybinds
+addmenukey "Activate Rage" activaterage
+alias activaterage "puke 128"
+defaultbind R activaterage

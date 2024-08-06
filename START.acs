@@ -36,7 +36,7 @@ script "ChaingunBurstMode" (void)
 {
 	SetResultValue (GameSkill());
 }
-script 1 (void)
+script "DeathExecuter" DEATH
 {
 	If(Gameskill() == SKILL_VERY_HARD)
 	{
@@ -44,11 +44,35 @@ script 1 (void)
 		SpawnProjectile (0, "InstableBFGBall", GetActorAngle(0) >> 8, 0, -999, 0, 128);
 		SpawnProjectile (0, "InstableBFGBall", GetActorAngle(0) >> 8, 0, -999, 0, 128);
 		SpawnProjectile (0, "InstableBFGBall", GetActorAngle(0) >> 8, 0, -999, 0, 128);
+		GiveInventory ("Rage", 10);
 	}
 }
-script "DeathExecuter" DEATH
+script 128 (void) NET
 {
-	ACS_Execute (1, 0, 0, 0, 0);
+	If(Gameskill() == SKILL_VERY_HARD)
+	{
+		SetCVAR("sv_cheats", 1);
+		if(CheckInventory("Rage") < 10)
+		{
+			HudMessage(s:"Rage meter not full"; HUDMSG_PLAIN, 1, CR_DARKRED, 0.5, 0.2, 2.0);
+		}
+		else if(Checkinventory("Rage") == 10)
+		{
+			HudMessage (s:"Rage Mode!!!"; HUDMSG_PLAIN, 1, CR_DARKRED, 0.5, 0.2, 3.0);
+			SetCVAR("sv_fastweapons", 3);
+			while (Checkinventory("Rage")!=0)
+			{
+				int rage = Checkinventory("Rage");
+				Print (d:rage);
+				TakeInventory ("Rage", 1);
+				Delay (10);
+			}
+			if(Checkinventory("Rage")==0)
+			{
+				SetCVAR("sv_fastweapons", 0);
+			}
+		}
+	}
 }
 script "WadChecker" (void)
 {
