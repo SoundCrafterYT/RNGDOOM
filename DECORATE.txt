@@ -512,7 +512,7 @@ ACTOR RNGPistol : Pistol
 		PISG A 0 A_Jump(ACS_NamedExecuteWithResult("MalfunctionChance", 0), "SquibLoad")
 		PISG A 0 A_GunFlash
 		PISG A 0 A_StartSound ("Pistol", 1)
-		PISG A 0 A_FireBullets (frandom(3, 11), 0, -1, random(1, 50), "Puff", 1, random(1, 2048), "Tracer", -5, 0)
+		PISG A 0 A_FireBullets (frandom(3, 11), 0, -1, random(1, 50), "Puff", 1, random(1, 2048))
 		PISG B 1
 		PISG C 3
 		PISG D 4
@@ -522,7 +522,7 @@ ACTOR RNGPistol : Pistol
 	HeavyFire:
 		DEGL B 0 A_GunFlash
 		DEGL B 0 A_StartSound ("Deagle", 1, CHANF_OVERLAP)
-		DEGL B 0 A_FireBullets (frandom(2, 7), 0, -1, random(1, 115), "Puff", 1|FBF_PUFFTRACER, random(1, 2048), "Tracer", -5, 0)
+		DEGL B 0 A_FireBullets (frandom(2, 7), 0, -1, random(1, 115), "Puff", 1|FBF_PUFFTRACER, random(1, 2048))
 		DEGL B 1
 		DEGL C 5
 		DEGL D 6
@@ -542,7 +542,7 @@ ACTOR RNGPistol : Pistol
 		PISG A 0 A_StartSound ("PistolExplode2", 1, CHANF_OVERLAP)
 		PISG A 0 A_DamageSelf (random(0, 10))
 		PISG A 0 A_TakeInventory ("SquibBullets", 1)
-		PISG A 0 A_FireBullets (180, 180, 20, 150, "Puff", 1, random(1, 1024), "Tracer", -5, 0)
+		PISG A 0 A_FireBullets (180, 180, 20, 150, "Puff", 1, random(1, 1024))
 		PISG G 1
 		PISG H 3
 		PISG I 4
@@ -649,7 +649,7 @@ ACTOR RNGShotgun : Shotgun
 		SHTG A 0 A_Jump(ACS_NamedExecuteWithResult("MalfunctionChance",0), "SquibLoad")
 		SHTG A 0 A_GunFlash
 		SHTG A 0 A_StartSound ("Shotgun", 1, CHANF_OVERLAP)
-		SHTG A 0 A_FireBullets (frandom(5, 12), 0, random(2, 7), random(1, 50), "Puff", 1, random(1, 2048), "Tracer", -5, 0)
+		SHTG A 0 A_FireBullets (frandom(5, 12), 0, random(2, 7), random(1, 50), "Puff", 1, random(1, 2048))
 		SHTG C 3
 		SHTG B 4
 		SHTG A 1
@@ -665,7 +665,7 @@ ACTOR RNGShotgun : Shotgun
 	AutoFire:
 		ASTG A 0 A_GunFlash
 		ASTG A 0 A_StartSound ("Shotgun", 1, CHANF_OVERLAP)
-		ASTG A 0 A_FireBullets (frandom(5, 12), 0, random(2, 10), random(1, 25), "Puff", 1, random(1, 2048), "Tracer", -5, 0)
+		ASTG A 0 A_FireBullets (frandom(5, 12), 0, random(2, 10), random(1, 25), "Puff", 1, random(1, 2048))
 		ASTG A 1 A_WeaponOffset (0, 36)
 		ASTG A 1 A_WeaponOffset (0, 35)
 		ASTG A 1 A_WeaponOffset (0, 34)
@@ -677,7 +677,7 @@ ACTOR RNGShotgun : Shotgun
 	SquibFire:
 		SHI2 A 0 A_GunFlash
 		SHI2 A 0 A_TakeInventory ("SquibShells", 1)
-		SHI2 A 0 A_FireBullets (180, 180, 50, 100, "Puff", 1, random(1, 1024), "Tracer", -5, 0)
+		SHI2 A 0 A_FireBullets (180, 180, 50, 100, "Puff", 1, random(1, 1024))
 		SHI2 A 0 A_StartSound ("ShotExplode")
 		SHI2 A 0 A_DamageSelf (random(0, 50))
 		SHI2 ABCDEFGHIJKLM 1 Bright
@@ -796,7 +796,7 @@ ACTOR RNGSShotgun : SuperShotgun //This might be the longest code for this weapo
 		TNT1 A 0 A_JumpIfInventory ("PowerSSG", 1, "CursedFire")
 		SHT2 A 0 A_GunFlash
 		SHT2 A 0 A_StartSound ("SShotgun", 1, Chanf_Overlap)
-		SHT2 A 0 A_FireBullets (random(4, 20), random(2, 10), random(2, 20), random(5, 50), "Puff", 1, random(1, 4096), "Tracer", -5, 0) 
+		SHT2 A 0 A_FireBullets (random(4, 20), random(2, 10), random(2, 20), random(5, 50), "Puff", 1, random(1, 4096)) 
 		SHT2 A 1 A_WeaponOffset (0, 38)
 		SHT2 A 1 A_WeaponOffset (0, 37)
 		SHT2 A 1 A_WeaponOffset (0, 36)
@@ -825,7 +825,7 @@ ACTOR RNGSShotgun : SuperShotgun //This might be the longest code for this weapo
 		QSSG A 0 A_GunFlash ("QuadFlash")
 		QSSG A 0 A_StartSound ("QuadShotgun", 1, Chanf_Overlap)
 		QSSG A 0 A_TakeInventory ("Shell", 4)
-		QSSG A 0 A_FireBullets (random(4, 20), random(2, 10), random(1, 10)*4, random(5, 50), "Puff", 0, random(1, 4096), "Tracer", -5, 0) 
+		QSSG A 0 A_FireBullets (random(4, 20), random(2, 10), random(1, 10)*4, random(5, 50), "Puff", 0, random(1, 4096)) 
 		QSSG A 0 A_Recoil (5)
 		QSSG A 1 A_WeaponOffset (0, 38)
 		QSSG A 1 A_WeaponOffset (0, 37)
@@ -852,15 +852,15 @@ ACTOR RNGSShotgun : SuperShotgun //This might be the longest code for this weapo
 		QSSG A 0 A_GunFlash ("QuadFlash")
 		QSSG A 0 A_StartSound ("QuadBMGShotgun", 1, Chanf_Overlap)
 		TNT1 A 0 A_JumpIf(CallACS("Always50BMGAmmo")==true, 6)
-		QSSG A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 0, 4096, "Tracer", -5, 0)
-		QSSG A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 0, 4096, "Tracer", -5, 0)
-		QSSG A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 0, 4096, "Tracer", -5, 0)
-		QSSG A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 0, 4096, "Tracer", -5, 0)
+		QSSG A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 0, 4096)
+		QSSG A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 0, 4096)
+		QSSG A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 0, 4096)
+		QSSG A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 0, 4096)
 		TNT1 A 0 A_Jump (256, 5)
-		QSSG A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 1, 4096, "Tracer", -5, 0)
-		QSSG A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 0, 4096, "Tracer", -5, 0)
-		QSSG A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 0, 4096, "Tracer", -5, 0)
-		QSSG A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 1, 4096, "Tracer", -5, 0)
+		QSSG A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 1, 4096)
+		QSSG A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 0, 4096)
+		QSSG A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 0, 4096)
+		QSSG A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 1, 4096)
 		QSSG A 0 A_Recoil(40)
 		QSSG A 0 A_QuakeEx (9, 9, 2, 12, 0, 64, None, QF_SCALEDOWN)
 		QSSG A 1 A_WeaponOffset (0, 38)
@@ -963,12 +963,12 @@ ACTOR RNGSShotgun : SuperShotgun //This might be the longest code for this weapo
 		SHT2 A 0 A_GunFlash
 		SHT2 A 0 A_StartSound ("SSHotgun", 1, Chanf_Overlap)
 		TNT1 A 0 A_JumpIf(CallACS("Always50BMGAmmo")==true, 4)
-		SHT2 A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 0, 4096, "Tracer", -5, 0)
-		SHT2 A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 0, 4096, "Tracer", -5, 0)
+		SHT2 A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 0, 4096)
+		SHT2 A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 0, 4096)
 		TNT1 A 0 A_Jump (256, 4)
 		TNT1 A 0 A_TakeInventory ("Shells", 2)
-		SHT2 A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 0, 4096, "Tracer", -5, 0)
-		SHT2 A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 1, 4096, "Tracer", -5, 0)
+		SHT2 A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 0, 4096)
+		SHT2 A 0 A_FireBullets (3, -1, -1, random(50, 200), "Puff", 1, 4096)
 		SHT2 A 0 A_Recoil(20)
 		SHT2 A 0 A_QuakeEx (9, 9, 2, 12, 0, 64, None, QF_SCALEDOWN)
 		SHT2 A 1 A_WeaponOffset (0, 38)
@@ -1136,7 +1136,7 @@ ACTOR RNGChaingun : Chaingun
 		TNT1 A 0 A_Jump (ACS_NamedExecuteWithResult("MalfunctionChance", 0), "BurstFire")
 		CHGG A 0 A_GunFlash
 		CHGG A 0 A_StartSound ("Pistol2")
-		CHGG A 0 A_FireBullets (frandom(0, 14), -1, -1, random(1, 40), "Puff", 1, random(1, 2048), "Tracer", -9, 0)
+		CHGG A 0 A_FireBullets (frandom(0, 14), -1, -1, random(1, 40), "Puff", 1, random(1, 2048))
 		CHGG A random(1, 2)
 		CHGG B random(1, 2)
 		CHGG C random(1, 2)
@@ -1181,7 +1181,7 @@ ACTOR RNGChaingun : Chaingun
 		MNGN A 0 A_WeaponOffset (random(-2, 2), random(30, 34))
 		MNGN A 0 A_StartSound ("SpinLoop", 0, CHANF_LOOPING)
 		MNGN A 0 A_StartSound ("Minigun", 0, CHANF_LOOPING|CHANF_OVERLAP, 0.5)
-		MNGN A 0 A_FireBullets (frandom(2, 12), random(2, 8), -1, random(4, 25), "Puff", 1, 4096, "Tracer", -9, 0)
+		MNGN A 0 A_FireBullets (frandom(2, 12), random(2, 8), -1, random(4, 25), "Puff", 1, 4096)
 		//MNGN A 0 A_FireBullets (6, 0, -1, random(25, 75), "Puff", 1, 4096)
 		//MNGN A 0 A_Recoil (5)
 		/*MNGN A 1
@@ -1259,7 +1259,6 @@ ACTOR RNGChaingun : Chaingun
 }
 
 ACTOR RNGRPG : RocketLauncher 
-
 {
 	Weapon.SelectionOrder 2500
 	Weapon.SlotNumber 5
