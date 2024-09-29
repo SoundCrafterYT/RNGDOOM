@@ -666,12 +666,14 @@ ACTOR RNGShotgun : Shotgun
 		ASTG A 0 A_GunFlash
 		ASTG A 0 A_StartSound ("Shotgun", 1, CHANF_OVERLAP)
 		ASTG A 0 A_FireBullets (frandom(5, 12), 0, random(2, 10), random(1, 25), "Puff", 1, random(1, 2048))
+		ASTG A 1 A_WeaponOffset (0, 40)
+		ASTG A 1 A_WeaponOffset (0, 38)
 		ASTG A 1 A_WeaponOffset (0, 36)
 		ASTG A 1 A_WeaponOffset (0, 35)
 		ASTG A 1 A_WeaponOffset (0, 34)
 		ASTG A 1 A_WeaponOffset (0, 33)
 		ASTG A 1 A_WeaponOffset (0, 32)
-		ASTG A 5
+		ASTG A 3
 		ASTG A 1 A_ReFire
 		Goto AutoReady
 	SquibFire:
