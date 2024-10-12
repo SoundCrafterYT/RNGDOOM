@@ -3,9 +3,10 @@ Model Tracer
 	Path "Models"
 	SKIN 0 "Bullet.png" 
 	MODEL 0 "tracer.md3" 
-	Scale 2.0 1 1 
-	Offset 64 0 0
+	Scale 2 1 1 
+	Offset -64 0 0
 	PITCHFROMMOMENTUM
+	INTERPOLATEDOUBLEDFRAMES
 	
 	FrameIndex TRAC A 0 0
 }

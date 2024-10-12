@@ -64,7 +64,7 @@ script 128 (void) NET
 				Print (d:rage);
 				TakeInventory ("Rage", 1);
 				SetCVAR("sv_cheats", 1);
-				SetCVAR("sv_fastweapons", 2);
+				SetCVAR("sv_fastweapons", 3);
 				Delay (12);
 			}
 			if(Checkinventory("Rage")==0)
