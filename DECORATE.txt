@@ -50,8 +50,8 @@ ACTOR Trooper : Zombieman replaces ZombieMan
 		POSS E 8
 		Goto See
 	Pain:
-		POSS G 3
-		POSS G 3 A_Pain
+		POSS G 1 A_Pain
+		POSS G 5 
 		Goto See
 	Death:
 		POSS H 5
