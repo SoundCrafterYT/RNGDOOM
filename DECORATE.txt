@@ -2287,7 +2287,7 @@ ACTOR PuffSmoke
 	States
 	{
 	Spawn:
-		SMOK BCDEFGH 4
+		SMOK ABCD 4
 		Stop
 	}
 }
@@ -2298,8 +2298,8 @@ ACTOR ImpactSmoke : PuffSmoke
 	States
 	{
 	Spawn:
-		SMOK BCD 6
-		SMOK EFGH 6 A_FadeTo (0.0, 0.2)
+		SMOK A 6
+		SMOK BCD 6 A_FadeTo (0.0, 0.25)
 		Stop
 	}
 }
