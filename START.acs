@@ -6,6 +6,9 @@ script "Watermark" ENTER
 	SetFont("CONFONT");
 	HudMessage(s:"RNGDOOM PTB V0.9"; HUDMSG_PLAIN, 0, CR_WHITE, 1.0, 0.0, 0.0);
 }
+script "RailgunAmmoCheck" ENTER
+{
+}
 script "AmmoStarter" ENTER
 {
 	If (CheckInventory("RNGAmmo")==0)
