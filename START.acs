@@ -96,3 +96,16 @@ script "DoubleAmmoCapacity" (void)
 		
 	}
 }
+script "GiveAllUpgrades" (void)
+{
+	GiveInventory("DoubleBarChainsaw", 1);
+	GiveInventory("Deagle", 1);
+	GiveInventory("AutoShotgun", 1);
+	GiveInventory("QuadSShotgun", 1);
+	GiveInventory("Minigun", 1);
+	GiveInventory("MultiRLauncher", 1);
+	GiveInventory("RocketUpgrade", 1);
+	GiveInventory("RailUpgrade", 1);
+	GiveInventory("RNGPlasma" ,1);
+	GiveInventory("Cell", Random(1, 3));
+}
