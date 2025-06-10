@@ -46,8 +46,8 @@ ACTOR Trooper : Zombieman replaces ZombieMan
 	Missile:
 		POSS E random(0, 10) A_FaceTarget
 		POSS E 0 A_PlaySound ("Pistol")
-		POSS F 8 A_CustomBulletAttack (frandom(1, 25), 0, 1, random(1,10), "Puff", random(64, 2048), 0, AAPTR_TARGET, "Tracer", 31, 6)
-		POSS E 8
+		POSS F 1 A_CustomBulletAttack (frandom(1, 25), 0, 1, random(1,10), "Puff", random(64, 2048), 0, AAPTR_TARGET, "Tracer", 31, 6)
+		POSS E 15
 		Goto See
 	Pain:
 		POSS G 1 A_Pain
@@ -521,10 +521,10 @@ ACTOR RNGPistol : Pistol
 		PISG A 0 A_StartSound ("Pistol", 1)
 		PISG A 0 A_FireBullets (frandom(3, 11), 0, -1, random(1, 50), "Puff", 1|FBF_PUFFTRACER, random(1, 2048), "Tracer", -4, 0)
 		PISG B 1
-		PISG C 3
+		PISG C 1
 		PISG D 4
 		PISG B 5
-		PISG A 1
+		PISG A 3
 		Goto Ready
 	HeavyFire:
 		DEGL B 0 A_GunFlash
