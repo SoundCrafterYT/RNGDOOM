@@ -36,7 +36,7 @@ Skill Violent
 	SpawnFilter = hard
 	PicName = "M_ULTRA"
 	AmmoFactor = 1
-	DamageFactor = 1.2
+	DamageFactor = 1
 	DropAmmoFactor = 1
 	Aggressiveness = 1
 }
