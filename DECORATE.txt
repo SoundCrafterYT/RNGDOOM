@@ -11,18 +11,6 @@ ACTOR RNGPlayer : DoomPlayer
 	Player.WeaponSlot 6, RNGPlasma
 	Player.WeaponSlot 7, RNGBFG
 }
-/*ACTOR VanillaPlayer : DoomPlayer
-{
-	Player.DisplayName "Purist"
-	Player.StartItem "RandPistol"
-	Player.WeaponSlot 1, RandFist, RandChainsaw
-	Player.WeaponSlot 2, RandPistol
-	Player.WeaponSlot 3, RandShotgun, RandSShotgun
-	Player.WeaponSlot 4, RandChaingun
-	Player.WeaponSlot 5, RandRPG
-	Player.WeaponSlot 6, RandPlasma
-	Player.WeaponSlot 7, RandBFG
-}*/
 
 ACTOR Trooper : Zombieman replaces ZombieMan
 {
@@ -61,7 +49,7 @@ ACTOR Trooper : Zombieman replaces ZombieMan
 		POSS L -1
 		Stop
 	XDeath:
-		POSS M 0 A_SpawnItemEx ("BloodSplat", 0, 0, 0, 20*velx, 20*vely, 20*velz)
+		POSS M 0 A_SpawnItemEx ("BloodSplat", 0, 0, 0, velx, vely, velz)
 		POSS M 5
 		POSS N 0 A_SpawnItemEx ("BloodSplat", 0, 0, 0, velx, vely, velz)
 		POSS N 5 A_XScream
@@ -501,16 +489,20 @@ ACTOR RNGPistol : Pistol
 		Loop
 	Select:
 		PISG A 0 A_JumpIfInventory ("PistolUpgrade", 1, "HeavySelect")
+		PISG A 0 A_SetPitch (0)
 		PISG A 1 A_Raise (8)
 		Loop
 	HeavySelect:
+		DEGL A 0 A_SetPitch (0)
 		DEGL A 1 A_Raise (8)
 		Loop
 	Deselect:
 		PISG A 0 A_JumpIfInventory ("PistolUpgrade", 1, "HeavyDeselect")
+		PISG A 0 A_SetPitch (0)
 		PISG A 1 A_Lower (8)
 		Loop
 	HeavyDeselect:
+		DEGL A 0 A_SetPitch (0)
 		DEGL A 1 A_Lower (8)
 		Loop
 	Fire:
@@ -520,6 +512,7 @@ ACTOR RNGPistol : Pistol
 		PISG A 0 A_GunFlash
 		PISG A 0 A_StartSound ("Pistol", 1)
 		PISG A 0 A_FireBullets (frandom(3, 11), 0, -1, random(1, 50), "Puff", 1|FBF_PUFFTRACER, random(1, 2048), "Tracer", -4, 0)
+		PISG A 0 A_SetAngle(frandom(angle-3, +angle+3), SPF_INTERPOLATE)
 		PISG B 1
 		PISG C 1
 		PISG D 4
@@ -530,6 +523,7 @@ ACTOR RNGPistol : Pistol
 		DEGL B 0 A_GunFlash
 		DEGL B 0 A_StartSound ("Deagle", 1, CHANF_OVERLAP)
 		DEGL B 0 A_FireBullets (frandom(2, 7), 0, -1, random(1, 115), "Puff", 1|FBF_PUFFTRACER, random(1, 2048), "Tracer", -3, 0)
+		DEGL B 0 A_SetAngle(frandom(angle-7, +angle+7), SPF_INTERPOLATE)
 		DEGL B 1
 		DEGL C 5
 		DEGL D 6
@@ -589,6 +583,7 @@ ACTOR RNGPistol : Pistol
 		Goto LightDone
 	DeagleRecoil:
 		DEGF B 0 A_Overlay (2, "DGLFlash")
+		TNT1 A 0 A_SetPitch (0)
 		TNT1 A 1 A_SetViewPitch (pitch-5)
 		TNT1 A 0 A_Light0
 		TNT1 AA 1 A_SetPitch (pitch+1, SPF_INTERPOLATE)
@@ -600,6 +595,7 @@ ACTOR RNGPistol : Pistol
 		Goto LightDone
 	PistolRecoil:
 		PISF A 0 Bright A_Light1
+		PISF A 0 A_SetPitch (0)
 		PISF A 1 A_SetViewPitch (pitch-2)
 		TNT1 A 0 A_Light0
 		TNT1 AA 1 A_SetPitch (pitch+0.5, SPF_INTERPOLATE)
@@ -2308,7 +2304,12 @@ ACTOR BloodSplat : BloodParticle
 	states
 	{
 	Spawn:
-		TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx ("BloodParticle", random(-20, 20), random(-20, 20), random(7, 57), frandom(-4 ,4), frandom(-4, 4), frandom(1, 6))
+		TNT1 A 0 ACS_NamedExecuteAlways("BloodAmount")
+		TNT1 AAAAA 0 A_SpawnItemEx ("BloodParticle", random(-20, 20), random(-20, 20), random(7, 57), (frandom(-4 ,4)+velx*3), (frandom(-4, 4)+vely*3), (frandom(1, 6)+velz*3))
+		TNT1 A 1
+		Stop
+	PaintRed:
+		TNT1 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 0 A_SpawnItemEx ("BloodParticle", random(-20, 20), random(-20, 20), random(7, 57), (frandom(-20 ,20)+velx*3), (frandom(-20, 20)+vely*3), (frandom(1, 6)+velz*3))
 		TNT1 A 1
 		Stop
 	}
@@ -2536,6 +2537,10 @@ ACTOR RNGAmmo : Inventory
 ACTOR DoubleAmmoOnce : Inventory
 {
 	Inventory.MaxAmount 2
+}
+ACTOR Blood : Inventory
+{
+	Inventory.MaxAmount 10
 }
 ACTOR Rage : Inventory
 {

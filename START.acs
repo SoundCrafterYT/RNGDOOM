@@ -4,10 +4,7 @@
 script "Watermark" ENTER
 {
 	SetFont("CONFONT");
-	HudMessage(s:"RNGDOOM PTB V0.9"; HUDMSG_PLAIN, 0, CR_WHITE, 1.0, 0.0, 0.0);
-}
-script "RailgunAmmoCheck" ENTER
-{
+	HudMessage(s:"RNGDOOM OPEN BETA V0.96"; HUDMSG_PLAIN, 0, CR_WHITE, 1.0, 0.0, 0.0);
 }
 script "AmmoStarter" ENTER
 {
@@ -15,6 +12,15 @@ script "AmmoStarter" ENTER
 	{
 		GiveInventory("Clip", random(1, 100));
 		GiveInventory("RNGAmmo", 1);
+	}
+}
+script "BloodAmount" (void)
+{
+	switch (GetCVar("rng_bloodamount"))
+	{
+		case 5:
+			SetActorState(0, "PaintRed");
+			break;
 	}
 }
 script "CVarSkillChecker" ENTER
@@ -50,7 +56,7 @@ script "DeathExecuter" DEATH
 		GiveInventory ("Rage", 10);
 	}
 }
-script 128 (void) NET
+/*script 128 (void) NET
 {
 	If(Gameskill() == SKILL_VERY_HARD)
 	{
@@ -77,7 +83,7 @@ script 128 (void) NET
 			}
 		}
 	}
-}
+}*/
 script "WadChecker" (void)
 {
 	GetLevelInfo(LEVELINFO_CLUSTERNUM);

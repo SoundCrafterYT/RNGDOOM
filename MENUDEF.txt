@@ -24,6 +24,7 @@ OptionMenu "RNGSettings"
 	StaticText ""
 	StaticText "-----Miscellaneous settings-----"
 	Option "Misc. effects (muzzle flash, trails, blood, etc.):", "rng_fxstyle", "FxStyles"
+	Option "Blood Amount:", "rng_bloodamount", "BloodAmount"
 }
 
 OptionValue "01"

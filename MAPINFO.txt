@@ -1,19 +1,19 @@
 GameInfo
 {
-	PlayerClasses = "RNGPlayer"//, "VanillaPlayer"
+	PlayerClasses = "RNGPlayer"
 }
 
 ClearSkills
 
 Skill TooEasy
 {
-	AutoUseHealth
 	EasyBossBrain
+	EasyKey
 	SpawnFilter = baby
 	PicName = "M_JKILL"
 	AmmoFactor = 1
 	DropAmmoFactor = 1
-	Aggressiveness = 0.1
+	Aggressiveness = 0.0
 }
 Skill Simple
 {
@@ -44,7 +44,7 @@ Skill Impossible
 {
 	DisableCheats
 	FastMonsters
-	MustConfirm = "Dude. Do you want to have a mental breakdown? Not recommended for baby ragers!"
+	MustConfirm = "Dude. Do you really want to play with this difficulty? I wouldn't recommend it if I were you."
 	InstantReaction
 	PicName = "M_NMARE"
 	SpawnFilter = nightmare

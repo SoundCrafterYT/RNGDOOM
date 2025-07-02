@@ -1,8 +1,9 @@
 server int rng_malfunctionchance = 2;
-server bool rng_skipcursed = false;
+//server bool rng_skipcursed = false;
 server bool rng_always50bmg = false;
 server bool rng_alwayscrit = false;
 server bool rng_weaponrecoil = false;
+server int rng_bloodamount = 0;
 user int hud_fullscreenstyle = 0;
 //user bool rng_fxstyle = 0;
 /*
