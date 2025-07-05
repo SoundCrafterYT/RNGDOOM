@@ -17,3 +17,7 @@ script "Recoil" (void)
 {
 	SetResultValue (GetCVar("rng_weaponrecoil"));
 }
+script "BloodAmount" (void)
+{
+	SetResultValue (GetCVar("rng_bloodamount"));
+}

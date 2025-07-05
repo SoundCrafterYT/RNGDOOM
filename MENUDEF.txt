@@ -47,7 +47,7 @@ OptionValue "BloodAmount"
 {
 	0, "None (Legacy monster gib sprites)"
 	1, "Low"
-	2, "Brutal"
-	3, "Extreme"
+	2, "Normal"
+	3, "Brutal"
 	4, "Paint the whole map red! (Might affect performance)"
 }

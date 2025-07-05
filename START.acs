@@ -14,15 +14,6 @@ script "AmmoStarter" ENTER
 		GiveInventory("RNGAmmo", 1);
 	}
 }
-script "BloodAmount" (void)
-{
-	switch (GetCVar("rng_bloodamount"))
-	{
-		case 5:
-			SetActorState(0, "PaintRed");
-			break;
-	}
-}
 script "CVarSkillChecker" ENTER
 {
 	If(GameSkill() == SKILL_VERY_HARD)

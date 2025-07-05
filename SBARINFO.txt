@@ -39,11 +39,14 @@ statusbar normal
 		}
 		InInventory not PowerSSG
 		{
-			drawimage "SHELL", 116, 190;
-			InInventory NailShells
+			InInventory not NailShells
 			{
-				drawimage "NAIL", 116, 190;
+				drawimage "SHELL", 116, 190;
 			}
+		}
+		InInventory NailShells
+		{
+			drawimage "NAIL", 116, 190;
 		}
 	}
 	IsSelected RNGRPG
@@ -146,17 +149,20 @@ statusbar fullscreen, fullscreenoffsets
 		}
 		IsSelected RNGSShotgun
 		{
-			InInventory NailShells
-			{
-				drawimage "NAIL", -50, -15;
-			}
 			InInventory PowerSSG
 			{
 				drawimage "50BMG", -50, -15;
 			}
 			InInventory not PowerSSG
 			{
-				drawimage "SHELL", -50, -15;
+				InInventory not NailShells
+				{
+					drawimage "SHELL", -50, -15;
+				}
+			}
+			InInventory NailShells
+			{
+				drawimage "NAIL", -50, -15;
 			}
 		}
 		IsSelected RNGRPG
@@ -204,17 +210,20 @@ statusbar fullscreen, fullscreenoffsets
 		}
 		IsSelected RNGSShotgun
 		{
-			InInventory NailShells
-			{
-				drawimage "NAIL", -21, -4;
-			}
 			InInventory PowerSSG
 			{
 				drawimage "50BMG", -21, -4;
 			}
 			InInventory not PowerSSG
 			{
-				drawimage "SHELL", -21, -4;
+				InInventory not NailShells
+				{
+					drawimage "SHELL", -21, -4;
+				}
+			}
+			InInventory NailShells
+			{
+				drawimage "NAIL", -21, -4;
 			}
 		}
 		IsSelected RNGRPG
