@@ -19,6 +19,7 @@ script "CVarSkillChecker" ENTER
 	If(GameSkill() == SKILL_VERY_HARD)
 	{
 		GiveInventory("First50BMGUse", 1);
+		GiveInventory("PowerSSG", 1);
 		SetCVAR("rng_malfunctionchance", 256);
 		SetCVAR("rng_skipcursed", true);
 		SetCVAR("rng_always50bmg", true);
