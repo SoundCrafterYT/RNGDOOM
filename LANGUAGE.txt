@@ -18,6 +18,7 @@ GOTBFGUPGRADE = "You got the laser beam upgrade!";
 GOTDBLSAW = "You got the Double Saw upgrade!";
 
 
+
 M_INFOTEXT1 = "RNGDoom is a mod that randomizes actors' properties.\n"
 "Including:\n"
 "	-Weapons\n"

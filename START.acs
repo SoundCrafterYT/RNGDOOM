@@ -6,6 +6,14 @@ script "Watermark" ENTER
 	SetFont("CONFONT");
 	HudMessage(s:"RNGDOOM OPEN BETA V0.96"; HUDMSG_PLAIN, 0, CR_WHITE, 1.0, 0.0, 0.0);
 }
+script "Overheat" (void)
+{
+	int percent = CheckInventory("PlasmaOverheat");
+	SetFont("SMALLFONT");
+	HudMessage(s:"OVERHEAT: ",
+		d:percent/10, s:"%";
+		HUDMSG_PLAIN, 0, CR_WHITE, 1.0, 1.0, 0.1);
+}
 script "AmmoStarter" ENTER
 {
 	If (CheckInventory("RNGAmmo")==0)
@@ -36,6 +44,10 @@ script "CVarSkillChecker" ENTER
 script "ChaingunBurstMode" (void)
 {
 	SetResultValue (GameSkill());
+}
+script "CheckLoadedShots" (void)
+{
+	SetResultValue(CheckInventory("ExtraShots"));
 }
 script "DeathExecuter" DEATH
 {
@@ -76,9 +88,30 @@ script "DeathExecuter" DEATH
 		}
 	}
 }*/
-script "WadChecker" (void)
+script "WadChecker" ENTER
 {
-	GetLevelInfo(LEVELINFO_CLUSTERNUM);
+	int num = GetLevelInfo(LEVELINFO_CLUSTERNUM);
+	if (num <= 4)
+	{
+		TakeInventory("RNGFist", 1);
+		TakeInventory("RNGPistol", 1);
+		TakeInventory("RNGAmmo", 1);
+		TakeInventory("RandomClip", 999);
+		SetPlayerProperty(0, 1, 4);
+		FadeTo(0, 0, 0, 1.0, 0.1);
+		SetFont("SMALLFONT");
+		Delay(1);
+		HudMessage(s:"THIS MOD IS ONLY PLAYABLE\nWITH DOOM2.WAD ONLY!\n\nLOAD THE CORRECT WAD TO BE\nABLE TO PLAY!"; HUDMSG_PLAIN, 1, CR_RED, 0.5, 0.5, 0.0);
+	}
+}
+script "SkillChecker" (void)
+{
+	bool thing = false;
+	if (GameSkill() == SKILL_VERY_HARD)
+	{
+		thing = true;
+	}
+	SetResultValue(thing);
 }
 script "DoubleAmmoCapacity" (void)
 {

@@ -6,8 +6,3 @@ server bool rng_weaponrecoil = false;
 server int rng_bloodamount = 0;
 user int hud_fullscreenstyle = 0;
 //user bool rng_fxstyle = 0;
-/*
-DON'T UNCOMMENT IT!
-IT IS NOT IMPLEMENTED YET AND IT WILL
-NOT WORK!
-*/
