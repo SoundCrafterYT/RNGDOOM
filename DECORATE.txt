@@ -688,18 +688,10 @@ ACTOR RNGShotgun : Shotgun
 	Fire:
 		SHTG A 0 A_JumpIfInventory("AutoUpgrade", 1, "AutoFire")
 		SHTG A 0 A_JumpIfInventory("SquibShells", 1, "SquibFire")
-		SHTG A 0 A_JumpIf(CallACS("CheckLoadedShots")>0, 5)
 		SHTG A 0 A_Jump(2, "SquibLoad")
 		SHTG A 0 A_GunFlash
 		SHTG A 0 A_StartSound ("Shotgun", 1, CHANF_OVERLAP)
-		SHTG A 0 A_Jump(256, 7)
-		SHTG A 0 A_GunFlash
-		SHTG A 0 A_StartSound ("Shotgun", 1, CHANF_OVERLAP)
-		SHTG A 0 A_TakeInventory("ExtraShots", 1)
-		SHTG A 0 A_FireBullets (frandom(5, 12), frandom(5, 12), random(5, 10), random(10,80), "Puff", 1|FBF_PUFFTRACER|FBF_NORANDOM, 2048, "Tracer", -5, 0)
-		SHTG A 0 A_JumpIf(CallACS("CheckLoadedShots")>0, "Fire")
-		SHTG A 0 A_Jump(256, 2)
-		SHTG A 0 A_FireBullets (frandom(5, 12), 0, random(1, 7), random(1, 50), "Puff", 1|FBF_PUFFTRACER|FBF_NORANDOM, random(1, 2048), "Tracer", -5, 0)
+		SHTG A 0 A_FireBullets (frandom(5, 12), 0, random(1, 7), random(1, 75), "Puff", 1|FBF_PUFFTRACER|FBF_NORANDOM, random(1, 2048), "Tracer", -5, 0)
 		SHTG C 3
 		SHTG B 4
 		SHTG A 1
@@ -715,7 +707,7 @@ ACTOR RNGShotgun : Shotgun
 	AutoFire:
 		ASTG A 0 A_GunFlash
 		ASTG A 0 A_StartSound ("Shotgun", 1, CHANF_OVERLAP)
-		ASTG A 0 A_FireBullets (frandom(5, 12), 0, random(2, 10), random(1, 25), "Puff", 1|FBF_PUFFTRACER|FBF_NORANDOM, random(1, 2048), "Tracer", -5, 0)
+		ASTG A 0 A_FireBullets (frandom(5, 12), 0, random(1, 10), random(1, 40), "Puff", 1|FBF_PUFFTRACER|FBF_NORANDOM, random(1, 2048), "Tracer", -5, 0)
 		ASTG A 1 A_WeaponOffset (0, 40)
 		ASTG A 1 A_WeaponOffset (0, 38)
 		ASTG A 1 A_WeaponOffset (0, 36)
@@ -726,16 +718,6 @@ ACTOR RNGShotgun : Shotgun
 		ASTG A 3
 		ASTG A 1 A_ReFire
 		Goto AutoReady
-	AltFire:
-		SHTG A 1
-		SHTG D 3
-		SHTG E 4
-		SHTG F 0 A_GiveInventory("ExtraShots", 1)
-		SHTG F 5 A_StartSound ("Re-", 1, CHANF_OVERLAP)
-		SHTG E 3 A_StartSound ("-load", 1, CHANF_OVERLAP)
-		SHTG D 4
-		SHTG A 3
-		Goto Ready
 	SquibFire:
 		SHI2 A 0 A_GunFlash
 		SHI2 A 0 A_TakeInventory ("SquibShells", 1)
@@ -2393,8 +2375,8 @@ ACTOR NullBFG : BFGExtra
 
 ACTOR BloodParticle
 {
-	Radius 1
-	Height 1
+	Radius 0.1
+	Height 0.1
 	Gravity 0.4
 	+ALLOWPARTICLES
 	+THRUACTORS
