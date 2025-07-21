@@ -2,7 +2,7 @@ ListMenu "MainMenu"
 {
 	StaticPatch 94, 2, "M_DOOM"
 	Position 97, 68
-	PatchItem "M_NGAME", "n", "PlayerClassMenu"
+	PatchItem "M_NGAME", "n", "SkillMenu"
 	PatchItem "M_OPTION", "o", "OptionsMenu"
 	PatchItem "M_RNGOPT", "r", "RNGSettings"
 	PatchItem "M_LOADG", "l", "LoadGameMenu"
@@ -23,8 +23,8 @@ OptionMenu "RNGSettings"
 	Option "Fullscreen HUD style:", "hud_fullscreenstyle", "HudStyles"
 	StaticText ""
 	StaticText "-----Miscellaneous settings-----"
-	Option "Misc. effects (muzzle flash, trails, blood, etc.):", "rng_fxstyle", "FxStyles"
-	Option "Blood Amount:", "rng_bloodamount", "BloodAmount"
+	Option "Particle style:", "rng_particlestyle", "ParticleStyle"
+	Option "Blood amount:", "rng_bloodamount", "BloodAmount"
 }
 
 OptionValue "01"
@@ -50,4 +50,9 @@ OptionValue "BloodAmount"
 	2, "Normal"
 	3, "Brutal"
 	4, "Paint the whole map red! (Might affect performance)"
+}
+OptionValue "ParticleStyle"
+{
+	0, "RNGDOOM"
+	1, "Quake-style"
 }

@@ -1,23 +1,25 @@
 #library "cvars"
 #include "zcommon.acs"
 
-script "MalfunctionChance" (void)
-{
-	SetResultValue (GetCVar("rng_malfunctionchance"));
-}
 script "Always50BMGAmmo" (void)
 {
-	SetResultValue (GetCvar("rng_always50bmg"));
+	SetResultValue(GetCvar("rng_always50bmg"));
 }
 script "AlwaysCritical" (void)
 {
-	SetResultValue (GetCVar("rng_alwayscrit"));
+	SetResultValue(GetCVar("rng_alwayscrit"));
 }
 script "Recoil" (void)
 {
-	SetResultValue (GetCVar("rng_weaponrecoil"));
+	SetResultValue(GetCVar("rng_weaponrecoil"));
 }
 script "BloodAmount" (void)
 {
-	SetResultValue (GetCVar("rng_bloodamount"));
+	int blood = GetUserCVar(0, "rng_bloodamount");
+	SetResultValue(blood);
+}
+script "Particles" (void)
+{
+	int puff = GetUserCVar(0, "rng_particlestyle");
+	SetResultValue(puff);
 }

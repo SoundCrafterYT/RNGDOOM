@@ -1,0 +1,4 @@
+brightmap sprite POSSF1
+{
+	map "BRIGHTMAPS/MONSTERS/ZOMBIEMAN/POSSF1.PNG"
+}

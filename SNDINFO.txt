@@ -24,7 +24,7 @@ Railgun DSRAILGN
 BFG9000 DSBFG
 BFGSquib DSBFG2
 BFGExplode DSBFEXPL
-PickupSound DSWPNUP
+WeaponPickup DSWPNUP
 Punch DSPUNCH
 Crit DSCRIT
 Crit2 DSCRIT2
@@ -32,7 +32,9 @@ CritLoop DSCRITLP
 PlasmaExplode DSPLMEXP
 SpinUp DSCHGNUP
 SpinDown DSCHGNDN
-SpinLoop DSCHGNLP
+SpinLoop DSCHGNLP	
+PowerPickup DSGETPOW
+DSITEMUP DSITEMUP
 $playersound	player	male	*death		dspldeth
 $playersound	player	male	*xdeath		dspdiehi
 $playersound	player	male	*gibbed		dsslop
@@ -200,14 +202,7 @@ doorsdr1_open			dsdoropn
 doorsdr1_clos			dsdorcls
 doorsdr2_open			dsbdopn
 doorsdr2_clos			dsbdcls
-miscsecret			dssecret
-miscw_pkup			dswpnup		
-miscp_pkup			dsgetpow	
-misci_pkup			dsitemup	
-misck_pkup			dsitemup	
-miscspawn			dsitmbk		
-miscchat			dsradio		
-miscchat2			dstink		
+miscsecret			dssecret			
 switchesnormbutn		dsswtchn
 switchesexitbutn		dsswtchx
 miscteleport			dstelept

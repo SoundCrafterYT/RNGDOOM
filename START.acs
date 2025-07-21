@@ -4,12 +4,13 @@
 script "Watermark" ENTER
 {
 	SetFont("CONFONT");
-	HudMessage(s:"RNGDOOM OPEN BETA V0.96"; HUDMSG_PLAIN, 0, CR_WHITE, 1.0, 0.0, 0.0);
+	HudMessage(s:"RNGDOOM OBT V0.97"; HUDMSG_PLAIN, 0, CR_WHITE, 1.0, 0.0, 0.0);
+	Print(i:GameSkill());
 }
 script "Overheat" (void)
 {
 	int percent = CheckInventory("PlasmaOverheat");
-	SetFont("SMALLFONT");
+	SetFont("CONFONT");
 	HudMessage(s:"OVERHEAT: ",
 		d:percent/10, s:"%";
 		HUDMSG_PLAIN, 0, CR_WHITE, 1.0, 1.0, 0.1);
@@ -28,26 +29,20 @@ script "CVarSkillChecker" ENTER
 	{
 		GiveInventory("First50BMGUse", 1);
 		GiveInventory("PowerSSG", 1);
-		SetCVAR("rng_malfunctionchance", 256);
 		SetCVAR("rng_skipcursed", true);
 		SetCVAR("rng_always50bmg", true);
 		SetCVAR("rng_alwayscrit", true);
 	}
 	else
 	{
-		SetCVAR("rng_malfunctionchance", 2);
 		SetCVAR("rng_skipcursed", false);
 		SetCVAR("rng_always50bmg", false);
 		SetCVAR("rng_alwayscrit", false);
 	}
 }
-script "ChaingunBurstMode" (void)
+script "SkillChecker" (void)
 {
-	SetResultValue (GameSkill());
-}
-script "CheckLoadedShots" (void)
-{
-	SetResultValue(CheckInventory("ExtraShots"));
+	SetResultValue(GameSkill());
 }
 script "DeathExecuter" DEATH
 {
@@ -57,7 +52,6 @@ script "DeathExecuter" DEATH
 		SpawnProjectile (0, "InstableBFGBall", GetActorAngle(0) >> 8, 0, -999, 0, 128);
 		SpawnProjectile (0, "InstableBFGBall", GetActorAngle(0) >> 8, 0, -999, 0, 128);
 		SpawnProjectile (0, "InstableBFGBall", GetActorAngle(0) >> 8, 0, -999, 0, 128);
-		GiveInventory ("Rage", 10);
 	}
 }
 /*script 128 (void) NET
@@ -91,7 +85,7 @@ script "DeathExecuter" DEATH
 script "WadChecker" ENTER
 {
 	int num = GetLevelInfo(LEVELINFO_CLUSTERNUM);
-	if (num <= 4)
+	if (num <= 4) //Cluster 4 is the Thy Flesh Consumed episode
 	{
 		TakeInventory("RNGFist", 1);
 		TakeInventory("RNGPistol", 1);
@@ -102,25 +96,32 @@ script "WadChecker" ENTER
 		SetFont("SMALLFONT");
 		Delay(1);
 		HudMessage(s:"THIS MOD IS ONLY PLAYABLE\nWITH DOOM2.WAD ONLY!\n\nLOAD THE CORRECT WAD TO BE\nABLE TO PLAY!"; HUDMSG_PLAIN, 1, CR_RED, 0.5, 0.5, 0.0);
+		//There's likely someone stupid to load it in Ultimate Doom. Who knows!
 	}
-}
-script "SkillChecker" (void)
-{
-	bool thing = false;
-	if (GameSkill() == SKILL_VERY_HARD)
-	{
-		thing = true;
-	}
-	SetResultValue(thing);
 }
 script "DoubleAmmoCapacity" (void)
 {
+	//using the give all command and picking up a backpack causes it to double once more
+	int ammo[4] = {
+		GetAmmoCapacity("Clip"),
+		GetAmmoCapacity("Shell"),
+		GetAmmoCapacity("RocketAmmo"),
+		GetAmmoCapacity("Cell")
+	};
 	if (CheckInventory("DoubleAmmoOnce")==1)
 	{
-		SetAmmoCapacity ("Clip", GetAmmoCapacity("Clip") * 2);
-		SetAmmoCapacity ("Shell", GetAmmoCapacity("Shell") * 2);
-		SetAmmoCapacity ("RocketAmmo", GetAmmoCapacity("RocketAmmo") * 2);
-		SetAmmoCapacity ("Cell", GetAmmoCapacity("Cell") * 2);
+		//So I checked if the ammo from the arrays match the numbers
+		if (ammo[0]==400 && ammo[1]==100 && ammo[2]==100 && ammo[3]==600)
+		{
+			//Does nothing ofc
+		}
+		else
+		{
+			SetAmmoCapacity ("Clip", GetAmmoCapacity("Clip") * 2);
+			SetAmmoCapacity ("Shell", GetAmmoCapacity("Shell") * 2);
+			SetAmmoCapacity ("RocketAmmo", GetAmmoCapacity("RocketAmmo") * 2);
+			SetAmmoCapacity ("Cell", GetAmmoCapacity("Cell") * 2);
+		}
 	}
 	else if (CheckInventory("DoubleAmmoOnce")==2)
 	{
@@ -129,6 +130,7 @@ script "DoubleAmmoCapacity" (void)
 }
 script "GiveAllUpgrades" (void)
 {
+	//I bet if there's a better way to do this...
 	GiveInventory("DoubleBarChainsaw", 1);
 	GiveInventory("Deagle", 1);
 	GiveInventory("AutoShotgun", 1);
