@@ -2055,6 +2055,7 @@ ACTOR RandomClip : CustomInventory replaces Clip
 ACTOR RandomAmmoBox : CustomInventory replaces ClipBox
 {
 	Inventory.PickupMessage "$GOTAMMOBOX"
+	Inventory.PickupSound "Item"
 	States
 	{
 	Spawn:
@@ -2069,6 +2070,7 @@ ACTOR RandomAmmoBox : CustomInventory replaces ClipBox
 ACTOR RandomShells : CustomInventory replaces Shell
 {
 	Inventory.PickupMessage "$GOTSHELLS"
+	Inventory.PickupSound "Item"
 	States
 	{
 	Spawn:
@@ -2082,6 +2084,7 @@ ACTOR RandomShells : CustomInventory replaces Shell
 ACTOR RandomShellBox : CustomInventory replaces ShellBox
 {
 	Inventory.PickupMessage "$GOTSHELLBOX"
+	Inventory.PickupSound "Item"
 	States
 	{
 	Spawn:
@@ -2096,6 +2099,7 @@ ACTOR RandomShellBox : CustomInventory replaces ShellBox
 ACTOR RandomRocket : CustomInventory replaces RocketAmmo
 {
 	Inventory.PickupMessage "$GOTROCKET"
+	Inventory.PickupSound "Item"
 	States
 	{
 	Spawn:
@@ -2109,6 +2113,7 @@ ACTOR RandomRocket : CustomInventory replaces RocketAmmo
 ACTOR RandomRPGBox : CustomInventory replaces RocketBox
 {
 	Inventory.PickupMessage "$GOTRPGBOX"
+	Inventory.PickupSound "Item"
 	States
 	{
 	Spawn:
@@ -2132,6 +2137,7 @@ ACTOR AllUpgrades : CustomInventory
 ACTOR RandomCell : CustomInventory replaces Cell
 {
 	Inventory.PickupMessage "$GOTCELL"
+	Inventory.PickupSound "Item"
 	States
 	{
 	Spawn:
@@ -2145,6 +2151,7 @@ ACTOR RandomCell : CustomInventory replaces Cell
 ACTOR RandomCellPack : CustomInventory replaces CellPack
 {
 	Inventory.PickupMessage "$GOTCELLBOX"
+	Inventory.PickupSound "Item"
 	States
 	{
 	Spawn:
@@ -2159,6 +2166,7 @@ ACTOR RandomCellPack : CustomInventory replaces CellPack
 ACTOR RandomHealth : CustomInventory replaces HealthBonus
 {
 	Inventory.PickupMessage "$GOTHTHBONUS"
+	Inventory.PickupSound "Item"
 	States
 	{
 	Spawn:
@@ -2173,6 +2181,7 @@ ACTOR RandomHealth : CustomInventory replaces HealthBonus
 ACTOR RandomArmBonus : CustomInventory replaces ArmorBonus
 {
 	Inventory.PickupMessage "$GOTARMBONUS"
+	Inventory.PickupSound "Item"
 	States
 	{
 	Spawn:
@@ -2187,6 +2196,7 @@ ACTOR RandomArmBonus : CustomInventory replaces ArmorBonus
 ACTOR RandomStimpack : CustomInventory replaces Stimpack
 {
 	Inventory.PickupMessage "$GOTSTIM"
+	Inventory.PickupSound "Item"
 	States
 	{
 	Spawn:
@@ -2201,6 +2211,7 @@ ACTOR RandomStimpack : CustomInventory replaces Stimpack
 ACTOR RandomMedkit : CustomInventory replaces MediKit
 {
 	Inventory.PickupMessage "$GOTMEDIKIT"
+	Inventory.PickupSound "Item"
 	States
 	{
 	Spawn:
@@ -2217,7 +2228,7 @@ ACTOR RandomBerserk : CustomInventory replaces Berserk
 	+COUNTITEM
 	+INVENTORY.ALWAYSPICKUP
 	Inventory.PickupMessage "$GOTBERSERK"
-	Inventory.PickupSound "miscp_pkup"
+	Inventory.PickupSound "PowerPickup"
 	States
 	{
 	Spawn:
