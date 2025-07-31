@@ -1,3 +1,4 @@
+// GZDOOM Compatibility
 ACTOR RNGPlayer : DoomPlayer
 {
 	Player.DisplayName "Casual"
@@ -767,7 +768,7 @@ ACTOR RNGPistol : Pistol
 		TNT1 A 1 A_SetPitch (0)
 		Goto LightDone
 	Flash2:
-		PISF A 1 A_QuakeEx (9, 9, 9, 18, 0, 64, None, QF_SCALEDOWN, 0, 0, 0, 0, 0, 9)
+		PISF A 1 A_QuakeEx (9, 9, 9, 18, 0, 64, None, QF_SCALEDOWN|QF_RELATIVE|QF_3D, 0, 0, 0, 0, 0, 9)
 		PISF A 1 Bright A_Light1
 		Goto LightDone
 	}
@@ -1059,7 +1060,7 @@ ACTOR RNGSShotgun : SuperShotgun //This might be the longest code for a weapon I
 		QSSG A 0 A_Recoil(20)
 		QSSG A 0 A_Recoil(20)
 		QSSG A 0 A_Recoil(20)
-		QSSG A 0 A_QuakeEx (9, 9, 2, 12, 0, 64, None, QF_SCALEDOWN)
+		QSSG A 0 A_QuakeEx (9, 9, 2, 12, 0, 64, None, QF_SCALEDOWN|QF_RELATIVE|QF_3D)
 		QSSG A 1 A_WeaponOffset (0, 38)
 		QSSG A 1 A_WeaponOffset (0, 37)
 		QSSG A 1 A_WeaponOffset (0, 36)
@@ -1165,7 +1166,7 @@ ACTOR RNGSShotgun : SuperShotgun //This might be the longest code for a weapon I
 		TNT1 A 0 A_TakeInventory ("Shell", 2)
 		SHT2 A 0 A_FireBullets (3, -1, 2, random(50, 200)*2, "BulletImpact", 0|FBF_PUFFTARGET|FBF_NORANDOM, 4096)
 		SHT2 A 0 A_Recoil(40)
-		SHT2 A 0 A_QuakeEx (9, 9, 2, 12, 0, 64, None, QF_SCALEDOWN)
+		SHT2 A 0 A_QuakeEx (9, 9, 2, 12, 0, 64, None, QF_SCALEDOWN|QF_RELATIVE|QF_3D)
 		SHT2 A 1 A_WeaponOffset (0, 38)
 		SHT2 A 1 A_WeaponOffset (0, 37)
 		SHT2 A 1 A_WeaponOffset (0, 36)
@@ -1403,7 +1404,7 @@ ACTOR RNGChaingun : Chaingun
 		MNGN A 0 A_JumpIfNoAmmo ("Release")
 		MNGN A 0 A_GunFlash
 		MNGN A 0 A_SetAngle(angle+random(-2, 2), SPF_INTERPOLATE)
-		MNGN A 0 A_QuakeEx (9, 5, 0, 3, 0, 64, None, QF_SCALEDOWN|QF_RELATIVE, 0, 0, 0, 0, 0, 5)
+		MNGN A 0 A_QuakeEx (9, 5, 0, 3, 0, 64, None, QF_SCALEDOWN|QF_RELATIVE|QF_3D, 0, 0, 0, 0, 0, 5)
 		MNGN A 0 A_WeaponOffset (random(-2, 2), random(30, 34))
 		MNGN A 0 A_StartSound ("SpinLoop", 0, CHANF_LOOPING)
 		MNGN A 0 A_StartSound ("Minigun", 0, CHANF_LOOPING|CHANF_OVERLAP, 0.5)
@@ -1640,7 +1641,7 @@ ACTOR RNGPlasma : PlasmaRifle
 		PLSM A 0 A_FireProjectile ("RNGPlasmaBall", frandom(-14, 14), true, 0, -9, 0, frandom(-6, 6))
 		TNT1 A 2
 		PLSM A 1 A_ReFire
-		PLAS A 0 A_QuakeEx (9, 9, 9, 35, 0, 64, None, QF_RELATIVE|QF_SCALEDOWN|QF_FULLINTENSITY,0, 0, 0, 0, 0, 20)
+		PLAS A 0 A_QuakeEx (9, 9, 9, 35, 0, 64, None, QF_RELATIVE|QF_SCALEDOWN|QF_3D,0, 0, 0, 0, 0, 20)
 		PLAS A 0 A_StartSound ("PlasmaExplode")
 		PLAS A 69
 		PLAS A 1 A_TakeInventory("RNGPlasma", 1)
@@ -2491,7 +2492,7 @@ ACTOR InstableBFGBall : FastProjectile
 		//TNT1 A 0 A_Quake (6, 40, 0, 1000, None)
 		//TNT1 A 0 A_Quake (3, 55, 0, 1500, None)
 		//TNT1 A 0 A_Quake (1, 70, 0, 2000, None)
-		TNT1 A 0 A_QuakeEx (9, 9, 9, 190, 0, 500, None, QF_SCALEDOWN, 0.0, 0.0, 0.0, 2000)
+		TNT1 A 0 A_QuakeEx (9, 9, 9, 190, 0, 500, None, QF_SCALEDOWN|QF_RELATIVE|QF_3D, 0.0, 0.0, 0.0, 2000)
 		TNT1 A 0 A_Explode (50000, 100000, 1|XF_CIRCULAR, 0)
 		TNT1 A 0 A_BFGSpray("NullBFG", 360, 10000, 360, 2000, 2000)
 		TNT1 A 70
