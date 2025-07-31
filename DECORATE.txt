@@ -1,3 +1,4 @@
+//LZDOOM compatibility
 ACTOR RNGPlayer : DoomPlayer
 {
 	Player.DisplayName "Casual"
