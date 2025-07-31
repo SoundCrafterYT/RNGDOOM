@@ -2,3 +2,63 @@ brightmap sprite POSSF1
 {
 	map "BRIGHTMAPS/MONSTERS/ZOMBIEMAN/POSSF1.PNG"
 }
+object Puff
+{
+	frame BPUFA{light BulletSpark}
+}
+object Flame
+{
+	frame FLAMA{light Fire1}
+	frame FLAMB{light Fire2}
+	frame FLAMC{light Fire3}
+	frame FLAMD{light Fire4}
+	frame FLAME{light Fire5}
+	frame FLAMF{light Fire6}
+	frame FLAMG{light Fire7}
+	frame FLAMH{light Fire8}
+}
+pointlight BulletSpark
+{
+	color 1.0 0.75 0.0
+	size 4
+}
+pointlight Fire1
+{
+	color 1.0 0.5 0.0
+	size 2
+}
+pointlight Fire2
+{
+	color 1.0 0.5 0.0
+	size 4
+}
+pointlight Fire3
+{
+	color 1.0 0.5 0.0
+	size 6
+}
+pointlight Fire4
+{
+	color 1.0 0.5 0.0
+	size 8
+}
+pointlight Fire5
+{
+	color 1.0 0.5 0.0
+	size 8
+}
+pointlight Fire6
+{
+	color 1.0 0.5 0.0
+	size 6
+}
+pointlight Fire7
+{
+	color 1.0 0.5 0.0
+	size 3
+}
+pointlight Fire8
+{
+	color 1.0 0.5 0.0
+	size 1
+}

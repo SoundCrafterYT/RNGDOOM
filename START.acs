@@ -5,7 +5,7 @@ script "Watermark" ENTER
 {
 	SetFont("CONFONT");
 	HudMessage(s:"RNGDOOM OBT V0.97"; HUDMSG_PLAIN, 0, CR_WHITE, 1.0, 0.0, 0.0);
-	Print(i:GameSkill());
+	//Print(i:GameSkill());
 }
 script "Overheat" (void)
 {
@@ -141,4 +141,8 @@ script "GiveAllUpgrades" (void)
 	GiveInventory("RailUpgrade", 1);
 	GiveInventory("RNGPlasma" ,1);
 	GiveInventory("Cell", Random(1, 3));
+}
+script "Version" ENTER
+{
+	if (CheckFlag(
 }

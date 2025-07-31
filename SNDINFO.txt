@@ -1,4 +1,10 @@
 $pitchshiftrange 12
+$random PossSight {PossSght1  PossSght2  PossSght3}
+$random PossDeath {PossDth1  PossDth2  PossDth3}
+$random SargSight {SargSght1  SargSght2  SargSght3}
+$random SargDeath {SargDth1  SargDth2  SargDth3}
+$random HeavySight {HeavySght1  HeavySght2  HeavySght3}
+$random HeavyDeath {HeavyDth1  HeavyDth2  HeavyDth3}
 Pistol DSPISTOL
 PistolSquib DSPISTL3
 PistolExplode DSPISTL2
@@ -24,7 +30,7 @@ Railgun DSRAILGN
 BFG9000 DSBFG
 BFGSquib DSBFG2
 BFGExplode DSBFEXPL
-WeaponPickup DSWPNUP
+WeaponPickup DSSHTGRL
 Punch DSPUNCH
 Crit DSCRIT
 Crit2 DSCRIT2
@@ -34,7 +40,31 @@ SpinUp DSCHGNUP
 SpinDown DSCHGNDN
 SpinLoop DSCHGNLP	
 PowerPickup DSGETPOW
-DSITEMUP DSITEMUP
+Item DSITEMUP
+PossSght1 DSPOSIT1
+PossSght2 DSPOSIT2
+PossSght3 DSPOSIT3
+PossAct DSPOSACT
+PossPain DSPOPAIN
+PossDth1 DSPODTH1
+PossDth2 DSPODTH2
+PossDth3 DSPODTH3
+SargSght1 DSPOSIT1
+SargSght2 DSPOSIT2
+SargSght3 DSPOSIT3
+SargAct DSPOSACT
+SargPain DSPOPAIN
+SargDth1 DSPODTH1
+SargDth2 DSPODTH2
+SargDth3 DSPODTH3
+HeavySght1 DSPOSIT1
+HeavySght2 DSPOSIT2
+HeavySght3 DSPOSIT3
+HeavyAct DSPOSACT
+HeavyPain DSPOPAIN
+HeavyDth1 DSPODTH1
+HeavyDth2 DSPODTH2
+HeavyDth3 DSPODTH3
 $playersound	player	male	*death		dspldeth
 $playersound	player	male	*xdeath		dspdiehi
 $playersound	player	male	*gibbed		dsslop
@@ -55,28 +85,6 @@ weaponsrocklx			dsbarexp
 weaponsplasmax			dsfirxpl
 weaponsbfgx			dsrxplod
 miscgibbed			dsslop
-$random gruntsight 		{ gruntsight1  gruntsight2  gruntsight3 }
-$random gruntdeath		{ gruntdeath1  gruntdeath2  gruntdeath3 }
-gruntsight1			dsposit1
-gruntsight2			dsposit2
-gruntsight3			dsposit3
-gruntactive			dsposact
-gruntpain			dspopain
-gruntdeath1			dspodth1
-gruntdeath2			dspodth2
-gruntdeath3			dspodth3
-gruntattack			dspistol
-$random shotguysight		{ shotguysight1  shotguysight2  shotguysight3 }
-$random shotguydeath		{ shotguydeath1  shotguydeath2  shotguydeath3 }
-shotguysight1			dsposit1
-shotguysight2			dsposit2
-shotguysight3			dsposit3
-shotguyactive			dsposact
-shotguypain			dspopain
-shotguydeath1			dspodth1
-shotguydeath2			dspodth2
-shotguydeath3			dspodth3
-shotguyattack			dsshotgn
 vilesight			dsvilsit
 vileactive			dsvilact
 vilepain			dsvipain
@@ -101,17 +109,6 @@ fatsoraiseguns			dsmanatk
 fatsodeath			dsmandth
 fatsoattack			dsfirsht
 fatsoshotx			dsfirxpl
-$random chainguysight		{ chainguysight1  chainguysight2  chainguysight3 }
-$random chainguydeath		{ chainguydeath1  chainguydeath2  chainguydeath3 }
-chainguysight1			dsposit1
-chainguysight2			dsposit2
-chainguysight3			dsposit3
-chainguyactive			dsposact
-chainguypain			dspopain
-chainguydeath1			dspodth1
-chainguydeath2			dspodth2
-chainguydeath3			dspodth3
-chainguyattack			dsshotgn
 $random impsight		{ impsight1  impsight2 }
 $random impdeath		{ impdeath1  impdeath2 }
 impsight1			dsbgsit1
