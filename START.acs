@@ -82,7 +82,7 @@ script "DeathExecuter" DEATH
 		}
 	}
 }*/
-script "WadChecker" ENTER
+/*script "WadChecker" ENTER
 {
 	int num = GetLevelInfo(LEVELINFO_CLUSTERNUM);
 	if (num <= 4) //Cluster 4 is the Thy Flesh Consumed episode
@@ -98,7 +98,7 @@ script "WadChecker" ENTER
 		HudMessage(s:"THIS MOD IS ONLY PLAYABLE\nWITH DOOM2.WAD ONLY!\n\nLOAD THE CORRECT WAD TO BE\nABLE TO PLAY!"; HUDMSG_PLAIN, 1, CR_RED, 0.5, 0.5, 0.0);
 		//There's likely someone stupid to load it in Ultimate Doom. Who knows!
 	}
-}
+}*/
 script "DoubleAmmoCapacity" (void)
 {
 	//using the give all command and picking up a backpack causes it to double once more
@@ -141,8 +141,4 @@ script "GiveAllUpgrades" (void)
 	GiveInventory("RailUpgrade", 1);
 	GiveInventory("RNGPlasma" ,1);
 	GiveInventory("Cell", Random(1, 3));
-}
-script "Version" ENTER
-{
-	if (CheckFlag(
 }
