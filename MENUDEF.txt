@@ -25,6 +25,7 @@ OptionMenu "RNGSettings"
 	StaticText "-----Miscellaneous settings-----"
 	Option "Particle style:", "rng_particlestyle", "ParticleStyle"
 	Option "Blood amount:", "rng_bloodamount", "BloodAmount"
+	Option "HD Sniper scope", "hud_hdscope", "01"
 }
 
 OptionValue "01"

@@ -5,4 +5,5 @@ server bool rng_weaponrecoil = false;
 user int rng_bloodamount = 0;
 user int hud_fullscreenstyle = 0;
 user int rng_particlestyle = 0;
+user bool hud_hdscope = false;
 //user bool rng_fxstyle = 0;

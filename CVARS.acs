@@ -23,3 +23,8 @@ script "Particles" (void)
 	int puff = GetUserCVar(0, "rng_particlestyle");
 	SetResultValue(puff);
 }
+script "HDSniperScope" (void)
+{
+	bool hd = GetUserCVar(0, "hud_hdscope");
+	SetResultValue(hd);
+}
