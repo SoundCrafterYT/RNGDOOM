@@ -2,6 +2,7 @@ ListMenu "MainMenu"
 {
 	StaticPatch 94, 2, "M_DOOM"
 	Position 97, 68
+	Linespacing 16
 	PatchItem "M_NGAME", "n", "SkillMenu"
 	PatchItem "M_OPTION", "o", "OptionsMenu"
 	PatchItem "M_RNGOPT", "r", "RNGSettings"

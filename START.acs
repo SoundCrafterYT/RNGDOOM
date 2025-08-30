@@ -54,34 +54,6 @@ script "DeathExecuter" DEATH
 		SpawnProjectile (0, "InstableBFGBall", GetActorAngle(0) >> 8, 0, -999, 0, 128);
 	}
 }
-/*script 128 (void) NET
-{
-	If(Gameskill() == SKILL_VERY_HARD)
-	{
-		if(CheckInventory("Rage") < 10)
-		{
-			HudMessage(s:"Rage meter not full"; HUDMSG_PLAIN, 1, CR_DARKRED, 0.5, 0.2, 2.0);
-		}
-		else if(Checkinventory("Rage") == 10)
-		{
-			HudMessage (s:"Rage Mode!!!"; HUDMSG_PLAIN, 1, CR_DARKRED, 0.5, 0.2, 3.0);
-			while (Checkinventory("Rage")!=0)
-			{
-				int rage = Checkinventory("Rage");
-				Print (d:rage);
-				TakeInventory ("Rage", 1);
-				SetCVAR("sv_cheats", 1);
-				SetCVAR("sv_fastweapons", 3);
-				Delay (12);
-			}
-			if(Checkinventory("Rage")==0)
-			{
-				SetCVAR("sv_cheats", 0);
-				SetCVAR("sv_fastweapons", 0);
-			}
-		}
-	}
-}*/
 script "WadChecker" ENTER
 {
 	int num = GetLevelInfo(LEVELINFO_CLUSTERNUM);

@@ -1,0 +1,33 @@
+version "4.14.2"
+
+/*class ArmorRandomizer : Inventory
+{
+  default
+  {
+    Inventory.MaxAmount 1;
+    +INVENTORY.PERSISTENTPOWER
+    +INVENTORY.UNDROPPABLE
+  }
+
+  void RandomizeArmorAbsorption()
+  {
+    BasicArmor Arm = BasicArmor(owner.FindInventory("BasicArmor"));
+    if(Arm)
+    {
+        double FRanAbsorption = FRandom(0, 100);
+        Arm.SavePercent = FRanAbsorption;
+    }
+  }
+
+  override void ModifyDamage (int damage, Name damageType, out int newdamage, bool passive, Actor inflictor, Actor source, int flags)
+  {
+    BasicArmor Arm = BasicArmor(owner.FindInventory("BasicArmor"));
+    if (passive && Arm && Arm.ActualSaveAmount > 0)
+    {
+         // Console.PrintF("Absorption Before Modification: %f || DAMAGE: %d", Arm.SavePercent, damage);
+          RandomizeArmorAbsorption(); // After taken damage, but before AbsorbDamage is called from Armor, modify it's absorption rate.
+          //Console.PrintF("Absorption After Modification: %f || DAMAGE: %d || ABSORPTION: %d", Arm.SavePercent * 100, damage, Arm.SavePercent * damage);
+          newdamage = damage; // return unmodified damage
+    }
+  }
+}*/

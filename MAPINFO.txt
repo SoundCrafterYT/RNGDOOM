@@ -1,6 +1,7 @@
 GameInfo
 {
 	PlayerClasses = "RNGPlayer"
+	BasicArmorClass = "NormalArmor"
 }
 
 ClearSkills
