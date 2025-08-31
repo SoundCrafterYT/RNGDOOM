@@ -905,14 +905,16 @@ ACTOR RNGShotgun : Shotgun
 		Goto Ready
 	SquibFire:
 		SHI2 A 0 A_GunFlash
-		SHI2 A 0 A_TakeInventory ("SquibShells", 1)
 		SHI2 A 0 A_FireBullets (180, 180, 50, 100, "BulletImpact", 1|FBF_PUFFTARGET|FBF_NORANDOM, random(1, 1024))
 		SHI2 A 0 A_StartSound ("ShotExplode")
 		SHI2 A 0 A_DamageSelf (random(0, 50))
-		SHI2 ABCDEFGHIJKLM 1 Bright
+		SHI2 A 0 A_TakeInventory ("SquibShells", 1)
+		SHI2 A 1 Bright
+		SHI2 BCDEFGHIJKLM 1 Bright
 		TNT1 A 17
 		SHIT A 1
 		SHIT A 0 A_TakeInventory ("RNGShotgun", 1)
+		SHIT A 1
 		Goto Ready
 	SquibLoad:
 		TNT1 A 0 A_GiveInventory ("SquibShells", 1)
@@ -2135,10 +2137,31 @@ ACTOR PickupBFG : CustomInventory replaces BFG9000
 	}
 }
 
-ACTOR HeavyArmor : BasicArmorPickup
+ACTOR NormalArmor : GreenArmor replaces GreenArmor
 {
+	States
+	{
+	Spawn:
+		ARM1 A 6
+		ARM1 B 6 Bright
+		Loop
+	}
+}
+ACTOR MegaArmor : BlueArmor
+{
+	States
+	{
+	Spawn:
+		ARM2 A 6
+		ARM2 B 6 Bright
+		Loop
+	}
+}
+ACTOR HeavyArmor : BlueArmor
+{
+	Inventory.PickupMessage "You got the Heavy Armor!"
 	Armor.SaveAmount 300
-	Armor.SavePercent 85
+	Armor.SavePercent 95
 	States
 	{
 	Spawn:
@@ -2149,7 +2172,7 @@ ACTOR HeavyArmor : BasicArmorPickup
 }
 ACTOR ArmorSpawner : RandomSpawner replaces BlueArmor
 {
-	DropItem "BlueArmor", 256, 15
+	DropItem "MegaArmor", 256, 15
 	DropItem "HeavyArmor", 256, 1
 }
 

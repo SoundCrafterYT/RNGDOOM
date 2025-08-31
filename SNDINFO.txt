@@ -1,4 +1,4 @@
-$pitchshiftrange 12
+$pitchshiftrange 24
 $random PossSight {PossSght1  PossSght2  PossSght3}
 $random PossDeath {PossDth1  PossDth2  PossDth3}
 $random SargSight {SargSght1  SargSght2  SargSght3}
