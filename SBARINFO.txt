@@ -90,6 +90,50 @@ statusbar fullscreen, fullscreenoffsets
 			{
 				drawimage "SHELLS", -70, -39;
 			}
+			InInventory AimCharge
+			{
+				//drawbar "CHARGE", "CHARGEBG", AimCharge, horizontal, -130, -135;
+				InInventory AimCharge, 10
+				{
+					drawimage "CHRG1", -150, -136;
+				}
+				InInventory AimCharge, 20
+				{
+					drawimage "CHRG2", -146, -136;
+				}
+				InInventory AimCharge, 30
+				{
+					drawimage "CHRG3", -142, -136;
+				}
+				InInventory AimCharge, 40
+				{
+					drawimage "CHRG4", -138, -136;
+				}
+				InInventory AimCharge, 50
+				{
+					drawimage "CHRG5", -134, -136;
+				}
+				InInventory AimCharge, 60
+				{
+					drawimage "CHRG6", -130, -136;
+				}
+				InInventory AimCharge, 70
+				{
+					drawimage "CHRG7", -126, -136;
+				}
+				InInventory AimCharge, 80
+				{
+					drawimage "CHRG8", -122, -136;
+				}
+				InInventory AimCharge, 90
+				{
+					drawimage "CHRG9", -118, -136;
+				}
+				InInventory AimCharge, 100
+				{
+					drawimage "CHRG10", -114, -136;
+				}
+			}
 		}
 		IsSelected RNGSShotgun
 		{

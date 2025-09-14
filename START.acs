@@ -54,6 +54,12 @@ script "DeathExecuter" DEATH
 		SpawnProjectile (0, "InstableBFGBall", GetActorAngle(0) >> 8, 0, -999, 0, 128);
 	}
 }
+script "AimCharging" (void)
+{
+	int num = CheckInventory("AimCharge");
+	GiveInventory("AimCharge", 1);
+	SetResultValue(num);
+}
 script "WadChecker" ENTER
 {
 	int num = GetLevelInfo(LEVELINFO_CLUSTERNUM);
@@ -73,7 +79,7 @@ script "WadChecker" ENTER
 }
 script "DoubleAmmoCapacity" (void)
 {
-	//using the give all command and picking up a backpack causes it to double once more
+	//Using the give all command, and picking up a backpack caused it to double once more
 	int ammo[4] = {
 		GetAmmoCapacity("Clip"),
 		GetAmmoCapacity("Shell"),
@@ -102,7 +108,7 @@ script "DoubleAmmoCapacity" (void)
 }
 script "GiveAllUpgrades" (void)
 {
-	//I bet if there's a better way to do this...
+	//I wish there's a better way to do this...
 	GiveInventory("DoubleBarChainsaw", 1);
 	GiveInventory("Deagle", 1);
 	GiveInventory("AutoShotgun", 1);
