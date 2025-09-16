@@ -45,7 +45,7 @@ Skill Impossible
 {
 	DisableCheats
 	FastMonsters
-	MustConfirm = "Dude. Do you really want to play with this difficulty? I wouldn't recommend it if I were you."
+	MustConfirm = "Dude. Do you really want to play with this difficulty? I wouldn't play it if I were you."
 	InstantReaction
 	PicName = "M_NMARE"
 	SpawnFilter = nightmare
