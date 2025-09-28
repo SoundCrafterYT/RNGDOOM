@@ -23,6 +23,18 @@ statusbar normal
     drawnumber 3, INDEXFONT, gold, ammocapacity Shell, 314, 179;
     drawnumber 3, INDEXFONT, gold, ammocapacity RocketAmmo, 314, 185;
     drawnumber 3, INDEXFONT, gold, ammocapacity Cell, 314, 191;
+	
+	IfCVarInt rng_stbarammo, 0, equal
+	{
+		drawimage "STAMMO", 249, 168;
+		IsSelected RNGPlasma
+		{
+			drawimage "STPLCHRG", 258, 172;
+			drawbar "PLSMABAR", "PLSMBBAR", PlasmaOverheat, horizontal, 259, 173;
+			drawnumber 4, SMALLFONT, red, PlasmaOverheat, 274, 184;
+		}
+	}
+	
 	IsSelected RNGPistol, RNGChaingun
 	{
 		drawimage "MAGAZINE", 117, 186;
@@ -63,7 +75,7 @@ statusbar normal
 
 statusbar fullscreen, fullscreenoffsets
 {
-	IfCVarInt hud_fullscreenstyle, 0, equal //RNGDoom Default
+	IfCVarInt rng_fullscreenstyle, 0, equal //RNGDoom Default
 	{
 		drawimage "AMMO2", -110, -30;
 		drawnumber 3, CONFONT, untranslated, ammo1, alignment(left), -70 , -30;
@@ -177,7 +189,7 @@ statusbar fullscreen, fullscreenoffsets
 		drawswitchableimage keyslot 6, "nullimage", "STKEYS4", 62, -48;
 		drawswitchableimage keyslot 4, "nullimage", "STKEYS5", 70, -48;
 	}
-	IfCVarInt hud_fullscreenstyle, 1, equal //Doom 64
+	IfCVarInt rng_fullscreenstyle, 1, equal //Doom 64
 	{
 		drawimage "AMMO", -100, -5, centerbottom;
 		drawnumber 3, HUDFONT_DOOM, untranslated, ammo1, alignment(center), -100, -30;
@@ -231,7 +243,7 @@ statusbar fullscreen, fullscreenoffsets
 		drawswitchableimage keyslot 6, "nullimage", "STKEYS4", -134, -21;
 		drawswitchableimage keyslot 4, "nullimage", "STKEYS5", -134, -13;
 	}
-	IfCVarInt hud_fullscreenstyle, 2, equal //ZDoom Default
+	IfCVarInt rng_fullscreenstyle, 2, equal //ZDoom Default
 	{
 		//health
 		drawimage "MEDIA0", 20, -2, centerbottom;

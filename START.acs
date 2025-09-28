@@ -7,13 +7,28 @@ script "Watermark" ENTER
 	HudMessage(s:"RNGDOOM OBT V0.97"; HUDMSG_PLAIN, 0, CR_WHITE, 1.0, 0.0, 0.0);
 	//Print(i:GameSkill());
 }
-script "Overheat" (void)
+script "Overheat" ENTER
 {
-	int percent = CheckInventory("PlasmaOverheat");
-	SetFont("CONFONT");
-	HudMessage(s:"OVERHEAT: ",
-		d:percent/10, s:"%";
-		HUDMSG_PLAIN, 0, CR_WHITE, 1.0, 1.0, 0.1);
+	SetFont("SMALLFONT");
+	int charge = CheckInventory("PlasmaOverheat");
+	if (CheckWeapon("RNGPlasma"))
+	{
+		HudMessage(s:""; HUDMSG_PLAIN, 2, CR_WHITE, 0.5, 0.1, 0.1);
+	}
+	else
+	{
+		TakeInventory("PlasmaOverheat", 1);
+		HudMessage(d:charge/10, s:".", d:charge%10; HUDMSG_PLAIN, 2, CR_WHITE, 0.5, 0.2, 0.2);
+	}
+	if(charge != 0)
+	{
+		delay(5);
+	}
+	else
+	{
+		delay(1);
+	}
+	restart;
 }
 script "AmmoStarter" ENTER
 {

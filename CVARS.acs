@@ -25,6 +25,6 @@ script "Particles" (void)
 }
 script "HDSniperScope" (void)
 {
-	bool hd = GetUserCVar(0, "hud_hdscope");
+	bool hd = GetUserCVar(0, "rng_hdscope");
 	SetResultValue(hd);
 }

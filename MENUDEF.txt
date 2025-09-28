@@ -21,12 +21,13 @@ OptionMenu "RNGSettings"
 	StaticText "-----Weapon settings-----"
 	Option "Weapon recoil:", "rng_weaponrecoil", "01" 
 	//Slider "Chance of the weapons to malfunction:", "rng_malfunctionchance", 1, 256, 1
-	Option "Fullscreen HUD style:", "hud_fullscreenstyle", "HudStyles"
 	StaticText ""
 	StaticText "-----Miscellaneous settings-----"
+	Option "Fullscreen HUD style:", "rng_fullscreenstyle", "HudStyles"
 	Option "Particle style:", "rng_particlestyle", "ParticleStyle"
 	Option "Blood amount:", "rng_bloodamount", "BloodAmount"
-	Option "HD Sniper scope", "hud_hdscope", "01"
+	Option "Statbar right element:", "rng_stbarammo", "StatBar"
+	Option "HD Sniper scope", "rng_hdscope", "01"
 }
 
 OptionValue "01"
@@ -57,4 +58,9 @@ OptionValue "ParticleStyle"
 {
 	0, "RNGDOOM"
 	1, "Quake-style"
+}
+OptionValue "StatBar"
+{
+	0, "Display weapon status"
+	1, "Display all ammo"
 }
