@@ -31,7 +31,7 @@ statusbar normal
 		{
 			drawimage "STPLCHRG", 258, 172;
 			drawbar "PLSMABAR", "PLSMBBAR", PlasmaOverheat, horizontal, 259, 173;
-			drawnumber 4, SMALLFONT, red, PlasmaOverheat, 274, 184;
+			drawnumber 4, SMALLFONT, red, PlasmaOverheat, 282, 184;
 		}
 	}
 	

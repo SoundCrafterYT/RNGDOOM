@@ -18,7 +18,6 @@ script "Overheat" ENTER
 	else
 	{
 		TakeInventory("PlasmaOverheat", 1);
-		HudMessage(d:charge/10, s:".", d:charge%10; HUDMSG_PLAIN, 2, CR_WHITE, 0.5, 0.2, 0.2);
 	}
 	if(charge != 0)
 	{
@@ -75,7 +74,7 @@ script "AimCharging" (void)
 	GiveInventory("AimCharge", 1);
 	SetResultValue(num);
 }
-script "WadChecker" ENTER
+/*script "WadChecker" ENTER
 {
 	int num = GetLevelInfo(LEVELINFO_CLUSTERNUM);
 	if (num <= 4) //Cluster 4 is the Thy Flesh Consumed episode
@@ -91,7 +90,7 @@ script "WadChecker" ENTER
 		HudMessage(s:"THIS MOD IS ONLY PLAYABLE\nWITH DOOM2.WAD ONLY!\n\nLOAD THE CORRECT WAD TO BE\nABLE TO PLAY!"; HUDMSG_PLAIN, 1, CR_RED, 0.5, 0.5, 0.0);
 		//There's likely someone stupid to load it in Ultimate Doom. Who knows!
 	}
-}
+}*/
 script "DoubleAmmoCapacity" (void)
 {
 	//Using the give all command, and picking up a backpack caused it to double once more
