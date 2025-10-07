@@ -641,10 +641,10 @@ ACTOR RNGFist : Fist replaces Fist
 		PUNG D 0
 		{
 			A_GiveInventory("Angle1", random(0, 18000000000));
-			A_WeaponOffset((CountInv("Angle1")/-10000000)*2+640, 32);
-			A_SetAngle (angle+(CountInv("Angle1")-9000000000)/10000000, SPF_INTERPOLATE);
+			A_WeaponOffset((CountInv("Angle1")/-10000000)*2+64, 32);
+			A_SetAngle (angle+(CountInv("Angle1")-9000000000)/10000000);
 			A_CustomPunch (random(25, 80), true, CPF_NOTURN, "BulletImpact", frandom(64, 80), 0, 0, None, "Punch", "skeletonswing");
-			A_SetAngle (angle-(CountInv("Angle1")-9000000000)/10000000, SPF_INTERPOLATE);
+			A_SetAngle (angle-(CountInv("Angle1")-9000000000)/10000000);
 			A_TakeInventory("Angle1");
 		}
 		PUNG D random(2, 6)
