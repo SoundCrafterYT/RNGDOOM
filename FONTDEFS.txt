@@ -1,5 +1,0 @@
-STBARSFONT
-	{
-		TEMPLATE STSFN%03d
-		spacewidth 5
-	}

@@ -43,6 +43,7 @@ script "CVarSkillChecker" ENTER
 	{
 		GiveInventory("First50BMGUse", 1);
 		GiveInventory("PowerSSG", 1);
+		GiveInventory("Nightmare", 1);
 		SetCVAR("rng_skipcursed", true);
 		SetCVAR("rng_always50bmg", true);
 		SetCVAR("rng_alwayscrit", true);

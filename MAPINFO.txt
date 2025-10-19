@@ -54,4 +54,5 @@ Skill Impossible
 	DropAmmoFactor = 2
 	Aggressiveness = 1
 	ReplaceActor = "RandomBarrel", "RandomPowderBarrel"
+	ReplaceActor = "PickupPistol", "RandomFuel"
 }

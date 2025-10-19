@@ -1,5 +1,6 @@
 [enu default]
 GOTPISTOL = "You got the pistol!";
+GOTFUEL = "Picked up a Fuel Can";
 GOTBULLETS = "Picked up a clip";
 GOTAMMOBOX = "Picked up a box of ammo";
 GOTSHELLS = "Picked up some shells";
@@ -18,17 +19,9 @@ GOTRAILUPGRADE = "You got the railgun upgrade!";
 GOTBFGUPGRADE = "You got the laser beam upgrade!";
 GOTDBLSAW = "You got the Double Saw upgrade!";
 
-
-
-M_INFOTEXT1 = "RNGDoom is a mod that randomizes actors' properties.\n"
-"Including:\n"
-"	-Weapons\n"
-"	-Items\n"
-"	-Monsters\n"
-"	-And much more!";
-
 [hun]
 GOTPISTOL = "Felvetted a pisztolyt!";
+GOTFUEL = "Felvettél egy benzintartályt!";
 GOTBULLETS = "Felvettél egy magazint";
 GOTAMMOBOX = "Felvettél egy doboz töltényt";
 GOTSHELLS = "Felvettél néhány sörétes lőszert";

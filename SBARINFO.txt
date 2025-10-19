@@ -6,7 +6,7 @@ statusbar normal
     drawimage "STBAR", 0, 168;
     drawimage "STTPRCNT", 90, 171;
     drawimage "STTPRCNT", 221, 171;
-    drawnumber 3, HUDFONT_DOOM, untranslated, ammo1, 44, 171;
+	drawnumber 3, HUDFONT_DOOM, untranslated, ammo1, 44, 171;
     drawnumber 3, HUDFONT_DOOM, untranslated, health, 90, 171;
     drawnumber 3, HUDFONT_DOOM, untranslated, armor, 221, 171;
 
@@ -27,6 +27,14 @@ statusbar normal
 	IfCVarInt rng_stbarammo, 0, equal
 	{
 		drawimage "STAMMO", 249, 168;
+		IsSelected RNGChainsaw
+		{
+			InInventory Nightmare
+			{
+				drawnumber 3, HUDFONT_DOOM, untranslated, Fuel, 280, 171;
+				drawimage "FUEL", 280, 191;
+			}
+		}
 		IsSelected RNGPlasma
 		{
 			drawimage "STPLCHRG", 258, 172;
