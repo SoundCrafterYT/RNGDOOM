@@ -12,7 +12,7 @@ AMD Ryzen 5 2600x 6-Core or better
 8GB RAM or higher
 
 [Compatibility]
-This mod is compatible with GZDOOM 4.11 and up
+This mod is compatible with GZDOOM 4.11+ and UZDOOM
 
 [Licensing]
 You are not allowed to redistribute the mod on any shape or form.
