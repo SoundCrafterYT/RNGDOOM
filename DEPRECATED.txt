@@ -1,4 +1,5 @@
-// GZDOOM Compatibility
+Deprecated DECORATE code
+
 ACTOR RNGPlayer : DoomPlayer
 {
 	Player.DisplayName "Casual"
