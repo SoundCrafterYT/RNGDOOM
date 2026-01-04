@@ -772,6 +772,7 @@ ACTOR RNGPistol : Pistol
 	Ready:
 		PISG A 0 A_JumpIfInventory ("PistolUpgrade", 1, "HeavyReady")
 		PISG A 0 A_JumpIfInventory("SquibBullets", 1, "SquibReady")
+		PISG A 0 A_SetCrosshair(1)
 		PISG A 1 A_WeaponReady
 		Loop
 	HeavyReady:

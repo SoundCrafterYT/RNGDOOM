@@ -31,8 +31,9 @@ statusbar normal
 		{
 			InInventory Nightmare
 			{
-				drawnumber 3, HUDFONT_DOOM, untranslated, Fuel, 280, 171;
-				drawimage "FUEL", 280, 191;
+				drawnumber 3, HUDFONT_DOOM, untranslated, Fuel, 300, 171;
+				drawimage "STTPRCNT", 300, 171;
+				drawimage "FUEL", 271, 191;
 			}
 		}
 		IsSelected RNGPlasma
