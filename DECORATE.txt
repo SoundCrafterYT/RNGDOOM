@@ -640,7 +640,7 @@ ACTOR RNGChainsaw : Chainsaw
 		}
 		Goto NoFuelReady
 	DblNoFuel:
-		DSAW C 1
+		DSAW A 1
 		{
 			A_StopSound(1);
 			A_StartSound("weaponssawidle");
@@ -658,7 +658,7 @@ ACTOR RNGChainsaw : Chainsaw
 	DblReady:
 		DSAW A 0 A_JumpIf(CallACS("SkillChecker")==4, 2)
 		DSAW A 0 A_JumpIf(CallACS("SkillChecker")<4, 2)
-		DSAW A 0 A_JumpIf(CountInv("Fuel")==0, "NoFuel")
+		DSAW A 0 A_JumpIf(CountInv("Fuel")==0, "DblNoFuel")
 		DSAW A 0 A_StartSound ("weaponssawidle")
 		DSAW CCCCDDDD 1 A_WeaponReady
 		Loop
@@ -1623,9 +1623,6 @@ ACTOR RNGChaingun : Chaingun
 		CHGG A 0 A_JumpIf(CallACS("Recoil")==false, 2)
 		CHGG A 0 A_SetAngle(frandom(angle-1, +angle+1), SPF_INTERPOLATE)
 		CHGG ABCD 1
-		{
-			
-		}
 		CHGG A 1 A_ReFire
 		Goto Ready
 	HeavySpin:
@@ -1636,15 +1633,17 @@ ACTOR RNGChaingun : Chaingun
 		MNGN D 4
 		MNGN A 2
 		MNGN C 1*/
-		MNGN A 7
-		MNGN B 6
-		MNGN C 5
+		MNGN A 5
+		MNGN B 5
+		MNGN C 4
 		MNGN D 4
 		MNGN A 3
-		MNGN B 2
-		MNGN C 1
-		MNGN D 1
-		MNGN ACA 1
+		MNGN B 3
+		MNGN C 2
+		MNGN D 2
+		MNGN A 1
+		MNGN B 1
+		MNGN CAC 1
 		Goto HeavyFire
 	Release:
 		MNGN A 0 A_WeaponOffset (0, 32)
@@ -2089,6 +2088,9 @@ ACTOR DoubleBarChainsaw : CustomInventory
 		DBSW A -1
 		Stop
 	Pickup:
+		TNT1 A 0 A_JumpIf(CallACS("SkillChecker")==4, 2)
+		TNT1 A 0 A_JumpIf(CallACS("SkillChecker")>4, 2)
+		TNT1 A 0 A_GiveInventory ("RandomFuel")
 		TNT1 A 0 A_GiveInventory ("RNGChainsaw")
 		TNT1 A 0 A_GiveInventory ("DblSawUpgrade")
 		Stop
@@ -2132,7 +2134,7 @@ ACTOR Deagle : CustomInventory
 }
 ACTOR PistolSpawner : RandomSpawner replaces Pistol
 {
-	DropItem "PickupPistol", 256, 9
+	DropItem "PickupPistol", 256, 11
 	DropItem "Deagle", 256, 1
 }
 
@@ -2219,7 +2221,7 @@ ACTOR QuadSShotgun : CustomInventory
 }
 ACTOR SSGSpawner : RandomSpawner replaces SuperShotgun
 {
-	DropItem "PickupSShotgun", 256, 2
+	DropItem "PickupSShotgun", 256, 3
 	Dropitem "QuadSShotgun", 256, 1
 }
 
@@ -2256,7 +2258,7 @@ ACTOR Minigun : CustomInventory
 }
 ACTOR ChaingunSpawner : RandomSpawner replaces Chaingun
 {
-	DropItem "PickupChaingun", 256, 4
+	DropItem "PickupChaingun", 256, 15
 	DropItem "Minigun", 256, 1
 }
 
@@ -2292,7 +2294,7 @@ ACTOR MultiRLauncher : CustomInventory
 }
 ACTOR RLauncherSpawner : RandomSpawner replaces RocketLauncher
 {
-	DropItem "PickupRLauncher", 256, 9
+	DropItem "PickupRLauncher", 256, 11
 	DropItem "MultiRLauncher", 256, 1
 }
 
