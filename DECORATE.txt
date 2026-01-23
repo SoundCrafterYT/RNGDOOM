@@ -2134,7 +2134,7 @@ ACTOR Deagle : CustomInventory
 }
 ACTOR PistolSpawner : RandomSpawner replaces Pistol
 {
-	DropItem "PickupPistol", 256, 11
+	DropItem "PickupPistol", 256, 15
 	DropItem "Deagle", 256, 1
 }
 
@@ -2187,7 +2187,7 @@ ACTOR ScopedShotgun : CustomInventory
 }
 ACTOR SGSpawner : RandomSpawner replaces Shotgun
 {
-	DropItem "PickupShotgun", 256, 31
+	DropItem "PickupShotgun", 256, 39
 	Dropitem "ScopedShotgun", 256, 1
 }
 ACTOR PickupSShotgun : CustomInventory
@@ -2221,7 +2221,7 @@ ACTOR QuadSShotgun : CustomInventory
 }
 ACTOR SSGSpawner : RandomSpawner replaces SuperShotgun
 {
-	DropItem "PickupSShotgun", 256, 3
+	DropItem "PickupSShotgun", 256, 4
 	Dropitem "QuadSShotgun", 256, 1
 }
 
@@ -2258,7 +2258,7 @@ ACTOR Minigun : CustomInventory
 }
 ACTOR ChaingunSpawner : RandomSpawner replaces Chaingun
 {
-	DropItem "PickupChaingun", 256, 15
+	DropItem "PickupChaingun", 256, 49
 	DropItem "Minigun", 256, 1
 }
 
@@ -2294,7 +2294,7 @@ ACTOR MultiRLauncher : CustomInventory
 }
 ACTOR RLauncherSpawner : RandomSpawner replaces RocketLauncher
 {
-	DropItem "PickupRLauncher", 256, 11
+	DropItem "PickupRLauncher", 256, 19
 	DropItem "MultiRLauncher", 256, 1
 }
 
@@ -2757,8 +2757,8 @@ ACTOR MultiRocket : FastProjectile
 {
 	Speed 40
 	Damage 0
-	Radius 8
-	Height 8
+	Radius 5
+	Height 5
 	+ROCKETTRAIL
 	MissileType "SmokeTrail"
 	DeathSound "weaponsrocklx"
@@ -3267,7 +3267,8 @@ ACTOR NailTrail : RocketSmokeTrail
 	Spawn:
 		PART ABC 1
 		{
-			A_ChangeVelocity (frandom(-2, 2), 0, frandom(-2, 2));
+			A_Jump(128, 1);
+			A_ChangeVelocity (frandom(-4, 4), 0, frandom(-4, 4));
 			A_FadeOut(1/4, 0);
 		}
 		Stop

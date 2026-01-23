@@ -42,6 +42,53 @@ statusbar normal
 			drawbar "PLSMABAR", "PLSMBBAR", PlasmaOverheat, horizontal, 259, 173;
 			drawnumber 4, SMALLFONT, red, PlasmaOverheat, 282, 184;
 		}
+		IsSelected RNGShotgun
+		{
+			InInventory AimCharge
+			{
+				//drawbar "CHARGE", "CHARGEBG", AimCharge, horizontal, -130, -135;
+				InInventory AimCharge, 10
+				{
+					drawimage "CHRG1", 253, 170;
+				}
+				InInventory AimCharge, 20
+				{
+					drawimage "CHRG2", 257, 170;
+				}
+				InInventory AimCharge, 30
+				{
+					drawimage "CHRG3", 261, 170;
+				}
+				InInventory AimCharge, 40
+				{
+					drawimage "CHRG4", 265, 170;
+				}
+				InInventory AimCharge, 50
+				{
+					drawimage "CHRG5", 269, 170;
+				}
+				InInventory AimCharge, 60
+				{
+					drawimage "CHRG6", 273, 170;
+				}
+				InInventory AimCharge, 70
+				{
+					drawimage "CHRG7", 277, 170;
+				}
+				InInventory AimCharge, 80
+				{
+					drawimage "CHRG8", 281, 170;
+				}
+				InInventory AimCharge, 90
+				{
+					drawimage "CHRG9", 285, 170;
+				}
+				InInventory AimCharge, 100
+				{
+					drawimage "CHRG10", 289, 170;
+				}
+			}
+		}
 	}
 	
 	IsSelected RNGPistol, RNGChaingun
