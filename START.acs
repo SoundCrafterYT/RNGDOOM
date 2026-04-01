@@ -94,7 +94,7 @@ script "WadChecker" ENTER
 }
 script "DoubleAmmoCapacity" (void)
 {
-	//Using the give all command, and picking up a backpack caused it to double once more
+	//Using the give all command, and then picking up a backpack caused it to double once more
 	int ammo[4] = {
 		GetAmmoCapacity("Clip"),
 		GetAmmoCapacity("Shell"),

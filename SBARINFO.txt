@@ -3,6 +3,7 @@ MonospaceFonts true, "0";
 
 statusbar normal 
 {
+	drawnumber 10, SMALLFONT, red, ExpPoint, alignment(left), 0, 160;
     drawimage "STBAR", 0, 168;
     drawimage "STTPRCNT", 90, 171;
     drawimage "STTPRCNT", 221, 171;
