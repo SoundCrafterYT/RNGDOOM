@@ -196,6 +196,8 @@ ACTOR Heavy : ChaingunGuy replaces ChaingunGuy
 	DeathSound "HeavyDeath"
 	ActiveSound "HeavyAct"
 	var int user_rand;
+	var float user_frand;
+	var float user_fnum;
 	var int user_num;
 	States
 	{
@@ -223,7 +225,9 @@ ACTOR Heavy : ChaingunGuy replaces ChaingunGuy
 		{
 			A_SetTics(user_num);
 			A_PlaySound("Shotgun", CHAN_WEAPON);
-			A_CustomBulletAttack(frandom(5, 22.5), 0, 1, random(1,10), "BulletImpact", random(64,2048), 0|CBAF_NORANDOM, AAPTR_TARGET);
+			user_frand = frandom(5,32);
+			user_fnum = user_frand;
+			A_CustomBulletAttack(user_fnum, 0, 1, random(1,10), "BulletImpact", random(64,2048), 0|CBAF_NORANDOM, AAPTR_TARGET);
 		}
 		CPOS F 1 A_CPosRefire
 		Goto Missile+1
@@ -3327,7 +3331,8 @@ ACTOR BulletImpact : Puff
 		Stop
 	QSpawn:
 		TNT1 AAAAAAAAAA 0 A_SpawnParticle("606060", SPF_RELVEL|SPF_RELACCEL, 105, 5.0, 0.0, frandom(-1, 1), frandom(-1, 1), frandom(-1, 1), frandom(-0.05, 0.05), frandom(-0.05, 0.05), frandom(0.05, 0.3), 0.0, 0.0, -0.001, frandom(0.1, 0.75), -1)
-		TNT1 AAAAAAAAAA 0 A_SpawnParticle("FFBD00", SPF_FULLBRIGHT|SPF_RELVEL|SPF_RELACCEL, 3, 5.0, 0.0, frandom(-2, 2), frandom(-2, 2), frandom(-2, 2), frandom(-3, 3), frandom(-3, 3), frandom(-3, 3), 0.0, 0.0, 0.0, 1.0, -1)
+		TNT1 A 0 A_Jump(256, random(1,4))
+		TNT1 AAAAA 0 A_SpawnParticle("FFBD00", SPF_FULLBRIGHT|SPF_RELVEL|SPF_RELACCEL, 6, 5.0, 0.0, frandom(-2, 2), frandom(-2, 2), frandom(-2, 2), frandom(-1.5, 1.5), frandom(-1.5, 1.5), frandom(-1.5, 1.5), 0.0, 0.0, 0.0, 1.0, -1)
 		TNT1 A 1
 		Stop
 	Melee:
